@@ -2210,6 +2210,37 @@
 						BackgroundColor3 = flags["Box_Color"].Color
 					});
 				-- 
+
+
+				-- Image
+				objects[ "image_handler" ] = library:create( "Frame" , {
+					Parent = library.cache;
+					Name = "\0";
+					BackgroundTransparency = 1;
+					Position = objects[ "box_handler" ].Position;
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -2, 1, -2);
+					BorderSizePixel = 0;
+					BackgroundColor3 = rgb(255, 255, 255);
+					ZIndex = -2
+				});
+
+
+
+				objects[ "image" ] = library:create( "ImageLabel" , {
+					Parent = library.cache;
+					Name = "\0";
+					BackgroundTransparency = 1;
+					Position = objects[ "image_handler" ].Position;
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -2, 1, -2);
+					BorderSizePixel = 0;
+					BackgroundColor3 = rgb(255, 255, 255);
+					ZIndex = 0
+				});
+
+
+
 				
 				-- Healthbar
 					objects[ "healthbar_holder" ] = library:create( "Frame" , {
