@@ -2328,7 +2328,6 @@
 					["Weapon"] = objects[ "weapon" ];
 					["Distance_Color"] = {objects[ "distance" ]};
 					["Weapon_Color"] = {objects[ "weapon" ]};
-					["Image"] = {objects[ "image_handler" ]};
 				}
 
 				for flag,object in temp do 
