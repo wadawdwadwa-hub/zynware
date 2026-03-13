@@ -1,8 +1,4 @@
--- REASON: Dumbass customer put their library in a request and flexed his non existant security and ended up getting it leaked by himself... 😭
--- The code here is horrendous this is my 2nd library, the added on code was made to suit the old code however I should have just converted to a newer version of my code kind of an oopsie. 
-
--- variables
-	local uis = cloneref(game:GetService("UserInputService"))
+    local uis = cloneref(game:GetService("UserInputService"))
 	local players = cloneref(game:GetService("Players"))
 	local ws = cloneref(game:GetService("Workspace"))
 	local http_service = cloneref(game:GetService("HttpService"))
@@ -17,10 +13,10 @@
 	local starter_gui = cloneref(game:GetService("StarterGui"))
 	local rs = cloneref(game:GetService("ReplicatedStorage"))
 
-	local vec2 = Vector2.new
-	local vec3 = Vector3.new
-	local dim2 = UDim2.new
-	local dim = UDim.new 
+	local vec2 = clonefunction(Vector2.new)
+	local vec3 = clonefunction(Vector3.new)
+	local dim2 = clonefunction(UDim2.new)
+	local dim = clonefunction(UDim.new) 
 	local rect = Rect.new
 	local cfr = CFrame.new
 	local empty_cfr = cfr()
