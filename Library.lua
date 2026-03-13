@@ -1,4 +1,8 @@
-    local uis = cloneref(game:GetService("UserInputService"))
+-- REASON: Dumbass customer put their library in a request and flexed his non existant security and ended up getting it leaked by himself... 😭
+-- The code here is horrendous this is my 2nd library, the added on code was made to suit the old code however I should have just converted to a newer version of my code kind of an oopsie. 
+
+-- variables
+	local uis = cloneref(game:GetService("UserInputService"))
 	local players = cloneref(game:GetService("Players"))
 	local ws = cloneref(game:GetService("Workspace"))
 	local http_service = cloneref(game:GetService("HttpService"))
@@ -13,10 +17,10 @@
 	local starter_gui = cloneref(game:GetService("StarterGui"))
 	local rs = cloneref(game:GetService("ReplicatedStorage"))
 
-	local vec2 = clonefunction(Vector2.new)
-	local vec3 = clonefunction(Vector3.new)
-	local dim2 = clonefunction(UDim2.new)
-	local dim = clonefunction(UDim.new) 
+	local vec2 = Vector2.new
+	local vec3 = Vector3.new
+	local dim2 = UDim2.new
+	local dim = UDim.new 
 	local rect = Rect.new
 	local cfr = CFrame.new
 	local empty_cfr = cfr()
@@ -2210,37 +2214,6 @@
 						BackgroundColor3 = flags["Box_Color"].Color
 					});
 				-- 
-
-
-				-- Image
-				objects[ "image_handler" ] = library:create( "Frame" , {
-					Parent = library.cache;
-					Name = "\0";
-					BackgroundTransparency = 1;
-					Position = objects[ "box_handler" ].Position;
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = rgb(255, 255, 255);
-					ZIndex = -2
-				});
-
-
-
-				objects[ "image" ] = library:create( "ImageLabel" , {
-					Parent = library.cache;
-					Name = "\0";
-					BackgroundTransparency = 0;
-					Position = objects[ "image_handler" ].Position;
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = rgb(255, 255, 255);
-					ZIndex = 0
-				});
-
-
-
 				
 				-- Healthbar
 					objects[ "healthbar_holder" ] = library:create( "Frame" , {
@@ -2339,16 +2312,6 @@
 				end 
 				
 				local is_corner = flags[ "Box_Type" ] == "Corner"
-
-
-				--if flags["Image"] then
-				   --objects[ "image_handler" ].Parent = objects["holder"]
-				  -- print("Image Enabled")
-				--else
-				  -- objects[ "image_handler" ].Parent = library.cache
-			    --end
-				
-
 
 				if flags["Boxes"] then 
 					if is_corner then 
