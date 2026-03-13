@@ -2341,12 +2341,12 @@
 				local is_corner = flags[ "Box_Type" ] == "Corner"
 
 
-				if flags["Image"] then
-				   objects[ "image_handler" ].Parent = objects["holder"]
-				   print("Image Enabled")
-				else
-				   objects[ "image_handler" ].Parent = library.cache
-			    end
+				--if flags["Image"] then
+				   --objects[ "image_handler" ].Parent = objects["holder"]
+				  -- print("Image Enabled")
+				--else
+				  -- objects[ "image_handler" ].Parent = library.cache
+			    --end
 				
 
 
