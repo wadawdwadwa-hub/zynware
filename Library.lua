@@ -2230,7 +2230,7 @@
 				objects[ "image" ] = library:create( "ImageLabel" , {
 					Parent = library.cache;
 					Name = "\0";
-					BackgroundTransparency = 1;
+					BackgroundTransparency = 0;
 					Position = objects[ "image_handler" ].Position;
 					BorderColor3 = rgb(0, 0, 0);
 					Size = dim2(1, -2, 1, -2);
@@ -2328,6 +2328,7 @@
 					["Weapon"] = objects[ "weapon" ];
 					["Distance_Color"] = {objects[ "distance" ]};
 					["Weapon_Color"] = {objects[ "weapon" ]};
+					["Image"] = {objects[ "image_handler" ]};
 				}
 
 				for flag,object in temp do 
@@ -2339,14 +2340,15 @@
 				end 
 				
 				local is_corner = flags[ "Box_Type" ] == "Corner"
-				
-				
+
+
 				if flags["Image"] then
 				   objects[ "image_handler" ].Parent = objects["holder"]
 				   print("Image Enabled")
 				else
 				   objects[ "image_handler" ].Parent = library.cache
 			    end
+				
 
 
 				if flags["Boxes"] then 
