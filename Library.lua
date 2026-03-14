@@ -258,7 +258,7 @@
 	local config_holder 
 -- 
 
-- library functions 
+-- library functions 
 	-- misc functions
 		function library:hoverify(hover, parent) 
 			local hover_instance = library:create("Frame", {
