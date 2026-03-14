@@ -222,7 +222,7 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("ffff.ttf", game:HttpGet("https://github.com/weasely111/beta/raw/refs/heads/main/fs-tahoma-8px.ttf"))
+	writefile("ffff.ttf", game:HttpGet("https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/windows-xp-tahoma.ttf"))
     writefile("pixel.ttf", game:HttpGet("https://github.com/wadawdwadwa-hub/zynware/blob/main/PixgamerRegular-OVD6A.ttf"))
 
 	local tahoma = {
@@ -253,7 +253,7 @@
 	writefile("dddd.ttf", http_service:JSONEncode(tahoma))
     writefile("pixelfont.ttf", http_service:JSONEncode(pixel))
 
-	library.font = Font.new(getcustomasset("pixelfont.ttf"), Enum.FontWeight.Regular)
+	library.font = Font.new(getcustomasset("dddd.ttf"), Enum.FontWeight.Regular)
 
 	local config_holder 
 -- 
