@@ -222,7 +222,7 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("ffff.ttf", game:HttpGet("https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/windows-xp-tahoma.ttf"))
+	writefile("ffff.ttf", game:HttpGet("https://github.com/wadawdwadwa-hub/zynware/blob/main/PixgamerRegular-OVD6A.ttf"))
 
 	local tahoma = {
 		name = "SmallestPixel7",
