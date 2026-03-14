@@ -2236,6 +2236,16 @@
 						BorderSizePixel = 0;
 						BackgroundColor3 = rgb(255, 255, 255)
 					});
+
+
+					objects[ "chams" ] = library:create( "Highlight" , {
+						Parent = character;
+						Name = "\0";
+						OutlineColor = library.flags["ChamsColorOne"].Color;
+						FillColor = library.flags["ChamsColorTwo"].Color;
+						OutlineTransparency = library.flags["ChamsColorOne"].Transparency;
+						FillTransparency = library.flags["ChamsColorTwo"].Transparency;
+					});
 				-- 
 
 				-- Distance esp
