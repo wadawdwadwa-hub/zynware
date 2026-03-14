@@ -258,7 +258,7 @@
 	local config_holder 
 -- 
 
--- library functions 
+- library functions 
 	-- misc functions
 		function library:hoverify(hover, parent) 
 			local hover_instance = library:create("Frame", {
@@ -565,19 +565,6 @@
 			return ins 
 		end
 	-- 
-
-
-
-	function library:createhighlight(instance, options)
-			local ins = Instance.new(instance) 
-			
-			for prop, value in next, options do 
-				ins[prop] = value
-			end
-			return ins 
-		end
-
-
 
 	-- elements 
 		local tooltip_sgui = library:create("ScreenGui", {
@@ -2250,7 +2237,7 @@
 						Name = "\0";
 						Position = dim2(0, -5, 0, 0);
 						BorderColor3 = rgb(0, 0, 0);
-						Size = dim2(0, 2, 1, 0);
+						Size = dim2(0, 4, 1, 0);
 						BorderSizePixel = 0;
 						BackgroundColor3 = rgb(0, 0, 0)
 					});
@@ -2260,7 +2247,7 @@
 						Name = "\0";
 						Position = dim2(0, 1, 0, 1);
 						BorderColor3 = rgb(0, 0, 0);
-						Size = dim2(.1, -.5, 1, -2);
+						Size = dim2(1, -2, 1, -2);
 						BorderSizePixel = 0;
 						BackgroundColor3 = rgb(255, 255, 255)
 					});
@@ -2303,19 +2290,6 @@
 				--  
 			end 
 
-
-
-			-- Chams esp
-					objects[ "chams" ] = library:createhighlight({
-						Name = "hl";
-						Parent = character;
-						Adornee = character
-					})
-				--  
-			end 
-
-
-
 			cfg.change_health = function()
 				if flags[ "healthbar_holder" ] and flags[ "healthbar_holder" ].Parent ~= objects[ "holder" ] then 
 					return 
@@ -2340,9 +2314,6 @@
 					["Healthbar"] = objects[ "healthbar_holder" ];
 					["Distance"] = objects[ "distance" ];
 					["Weapon"] = objects[ "weapon" ];
-					["Chams"] = objects[ "chams" ];
-					["ChamsColorOne"] = {objects[ "chams"]};
-					["ChamsColorTwo"] = {objects[ "chams"]};
 					["Distance_Color"] = {objects[ "distance" ]};
 					["Weapon_Color"] = {objects[ "weapon" ]};
 				}
@@ -2355,18 +2326,7 @@
 					end
 				end 
 				
-
 				local is_corner = flags[ "Box_Type" ] == "Corner"
-				objects[ "Chams" ].Enabled = flags["ChamsToggle"]
-				
-
-				if flags["ChamsToggle"] then
-				 objects[ "Chams" ].OutlineColor = flags["ChamsColorOne"].Color 
-				 objects[ "Chams" ].FillColor = flags["ChamsColorTwo"].Color 
-				 objects[ "Chams" ].OutlineTransparency = flags["ChamsColorOne"].Transparency 
-				 objects[ "Chams" ].FillTransparency = flags["ChamsColorTwo"].Transparency
-				end
-
 
 				if flags["Boxes"] then 
 					if is_corner then 
