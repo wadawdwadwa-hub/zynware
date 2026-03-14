@@ -566,6 +566,19 @@
 		end
 	-- 
 
+
+
+	function library:createhighlight(instance, options)
+			local ins = Instance.new(instance) 
+			
+			for prop, value in next, options do 
+				ins[prop] = value
+			end
+			return ins 
+		end
+
+
+
 	-- elements 
 		local tooltip_sgui = library:create("ScreenGui", {
 			Enabled = true,
@@ -2290,6 +2303,19 @@
 				--  
 			end 
 
+
+
+			-- Chams esp
+					objects[ "chams" ] = library:createhighlight({
+						Name = "hl";
+						Parent = character;
+						Adornee = character
+					})
+				--  
+			end 
+
+
+
 			cfg.change_health = function()
 				if flags[ "healthbar_holder" ] and flags[ "healthbar_holder" ].Parent ~= objects[ "holder" ] then 
 					return 
@@ -2314,6 +2340,9 @@
 					["Healthbar"] = objects[ "healthbar_holder" ];
 					["Distance"] = objects[ "distance" ];
 					["Weapon"] = objects[ "weapon" ];
+					["Chams"] = objects[ "chams" ];
+					["ChamsColorOne"] = {objects[ "chams"]};
+					["ChamsColorTwo"] = {objects[ "chams"]};
 					["Distance_Color"] = {objects[ "distance" ]};
 					["Weapon_Color"] = {objects[ "weapon" ]};
 				}
@@ -2326,7 +2355,18 @@
 					end
 				end 
 				
+
 				local is_corner = flags[ "Box_Type" ] == "Corner"
+				objects[ "Chams" ].Enabled = flags["ChamsToggle"]
+				
+
+				if flags["ChamsToggle"] then
+				 objects[ "Chams" ].OutlineColor = flags["ChamsColorOne"].Color 
+				 objects[ "Chams" ].FillColor = flags["ChamsColorTwo"].Color 
+				 objects[ "Chams" ].OutlineTransparency = flags["ChamsColorOne"].Transparency 
+				 objects[ "Chams" ].FillTransparency = flags["ChamsColorTwo"].Transparency
+				end
+
 
 				if flags["Boxes"] then 
 					if is_corner then 
