@@ -2237,14 +2237,15 @@
 						BackgroundColor3 = rgb(255, 255, 255)
 					});
 
+					
+				-- Image esp
 
-					objects[ "chams" ] = library:create( "Highlight" , {
-						Parent = character;
+					objects[ "image" ] = library:create( "ImageLabel" , {
+						Parent = objects[ "box_handler" ];
 						Name = "\0";
-						OutlineColor = library.flags["ChamsColorOne"].Color;
-						FillColor = library.flags["ChamsColorTwo"].Color;
-						OutlineTransparency = library.flags["ChamsColorOne"].Transparency;
-						FillTransparency = library.flags["ChamsColorTwo"].Transparency;
+						Image = "rbxassetid://9245596185";
+						BackgroundTransparency = 1;
+						ZIndex = -25;
 					});
 				-- 
 
