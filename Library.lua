@@ -222,8 +222,7 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("ffff.ttf", game:HttpGet("https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/windows-xp-tahoma.ttf"))
-    writefile("pixel.ttf", game:HttpGet("https://github.com/wadawdwadwa-hub/zynware/blob/main/PixgamerRegular-OVD6A.ttf"))
+	writefile("ffff.ttf", game:HttpGet("https://github.com/wadawdwadwa-hub/zynware/blob/main/PixgamerRegular-OVD6A.ttf"))
 
 	local tahoma = {
 		name = "SmallestPixel7",
@@ -237,21 +236,7 @@
 		}
 	}
 
-
-    local pixel = {
-		name = "PixelFont",
-		faces = {
-			{
-				name = "Regular",
-				weight = 400,
-				style = "normal",
-				assetId = getcustomasset("pixel.ttf")
-			}
-		}
-	}
-
 	writefile("dddd.ttf", http_service:JSONEncode(tahoma))
-    writefile("pixelfont.ttf", http_service:JSONEncode(pixel))
 
 	library.font = Font.new(getcustomasset("dddd.ttf"), Enum.FontWeight.Regular)
 
