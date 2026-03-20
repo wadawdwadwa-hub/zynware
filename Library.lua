@@ -2222,7 +2222,7 @@
 						Name = "\0";
 						Position = dim2(0, -5, 0, 0);
 						BorderColor3 = rgb(0, 0, 0);
-						Size = dim2(0, 2.5, 1, 0);
+						Size = dim2(0, 3, 1, 0);
 						BorderSizePixel = 0;
 						BackgroundColor3 = rgb(0, 0, 0)
 					});
@@ -2273,6 +2273,25 @@
 						TextSize = 12;
 					});
 				--  
+
+		        -- Health Count esp
+					objects[ "healthcount" ] = library:create( "TextLabel" , {
+						FontFace = library.font;
+						TextColor3 = flags["Flag"].Color;
+						BorderColor3 = rgb(0, 0, 0);
+						Text = "100";
+						Parent = library.cache;
+						TextStrokeTransparency = 0;
+						Name = "\0";
+						Size = dim2(1, 0, 0, 0);
+						BackgroundTransparency = 1;
+						Position = dim2(0, 0, -7, -5);
+						BorderSizePixel = 0;
+						AutomaticSize = Enum.AutomaticSize.Y;
+						TextSize = 12;
+					});
+				--  
+		
 			end 
 
 			cfg.change_health = function()
