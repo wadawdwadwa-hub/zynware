@@ -2364,11 +2364,9 @@
 		end
 
 		function library:notification(properties)
-			local cfg = {
-				time = properties.time or 5,
-				text = properties.text or properties.name or "Notification",
-				flashing = false, 
-			}
+			local time = properties.time or 5,
+			local text = properties.text or properties.name or "Notification",
+			local flashing = false, 
 		
 			-- Instances
 				local watermark_outline = library:create("Frame", {
@@ -2418,7 +2416,7 @@
 					FontFace = library.font,
 					TextColor3 = themes.preset.text,
 					BorderColor3 = rgb(0, 0, 0),
-					Text = "  " .. cfg.text .. "  ",
+					Text = "  " .. text .. "  ",
 					Size = UDim2.new(0, 0, 1, 0),
 					BackgroundTransparency = 1,
 					Position = UDim2.new(0, 0, 0, -1),
@@ -2471,7 +2469,7 @@
 				})
 
 				local index = #library.notifications + 1
-				library.notifications[index] =watermark_outline
+				library.notifications[index] = watermark_outline
 
 				library:refresh_notifications()
 
@@ -2481,7 +2479,7 @@
 			--
 			
 			task.spawn(function()
-				task.wait(cfg.time)
+				task.wait(time)
 
 				library.notifications[index] = nil
 
