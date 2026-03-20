@@ -2277,7 +2277,7 @@
 		        -- Health Count esp
 					objects[ "healthcount" ] = library:create( "TextLabel" , {
 						FontFace = library.font;
-						TextColor3 = flags["Flag"].Color;
+						TextColor3 = flags["FlagColor"].Color;
 						BorderColor3 = rgb(0, 0, 0);
 						Text = "100";
 						Parent = library.cache;
