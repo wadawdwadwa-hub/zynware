@@ -229,7 +229,7 @@
 		faces = {
 			{
 				name = "Regular",
-				weight = 400,
+				weight = 200,
 				style = "normal",
 				assetId = getcustomasset("proggy.ttf")
 			}
