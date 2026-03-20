@@ -2363,11 +2363,7 @@
 			end     
 		end
 
-		function library:notification(properties)
-			local time = properties.time
-			local text = properties.text
-			local flashing = false
-		
+		function library:notification(time, text, flashing)
 			-- Instances
 				local watermark_outline = library:create("Frame", {
 					Parent = notif_holder,
