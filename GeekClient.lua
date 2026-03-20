@@ -1,2 +1,1 @@
-Game:GetService("Players").LocalPlayer:Kick("newgen nigger")
-⠀⠀⠀⠀⠀
+Game:GetService("Players").LocalPlayer:Kick("Newgen Nigger")
