@@ -2364,9 +2364,9 @@
 		end
 
 		function library:notification(properties)
-			local time = properties.time or 5,
-			local text = properties.text or properties.name or "Notification",
-			local flashing = false, 
+			local time = properties.time or 5
+			local text = properties.text or properties.name or "Notification"
+			local flashing = false
 		
 			-- Instances
 				local watermark_outline = library:create("Frame", {
