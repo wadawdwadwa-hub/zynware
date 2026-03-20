@@ -2222,7 +2222,7 @@
 						Name = "\0";
 						Position = dim2(0, -5, 0, 0);
 						BorderColor3 = rgb(0, 0, 0);
-						Size = dim2(0, 4, 1, 0);
+						Size = dim2(0, 2.5, 1, 0);
 						BorderSizePixel = 0;
 						BackgroundColor3 = rgb(0, 0, 0)
 					});
