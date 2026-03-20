@@ -222,23 +222,23 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("fff.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/ProggyClean.ttf"))
+	writefile("minecraft.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/Minecraftia-Regular.ttf"))
 
-	local tahoma = {
-		name = "ProggyClean",
+	local Minecraftia = {
+		name = "Minecraftia-Regular",
 		faces = {
 			{
 				name = "Regular",
 				weight = 400,
 				style = "normal",
-				assetId = getcustomasset("fff.ttf")
+				assetId = getcustomasset("minecraft.ttf")
 			}
 		}
 	}
 
-	writefile("ddddd.ttf", http_service:JSONEncode(tahoma))
+	writefile("Minecraftia.ttf", http_service:JSONEncode(Minecraftia))
 
-	library.font = Font.new(getcustomasset("ddddd.ttf"), Enum.FontWeight.Regular)
+	library.font = Font.new(getcustomasset("Minecraftia.ttf"), Enum.FontWeight.Regular)
 
 	local config_holder 
 -- 
