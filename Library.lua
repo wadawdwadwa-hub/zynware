@@ -222,23 +222,23 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("tiny.ttf", game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/ProggyTiny.ttf"))
+	writefile("prggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/ProggyClean.ttf"))
 
-	local tiny = {
-		name = "tiny",
+	local proggy = {
+		name = "proggy",
 		faces = {
 			{
 				name = "Regular",
 				weight = 100,
 				style = "normal",
-				assetId = getcustomasset("tiny.ttf")
+				assetId = getcustomasset("prggy.ttf")
 			}
 		}
 	}
 
-	writefile("tiny2.ttf", http_service:JSONEncode(tiny))
+	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
 
-	library.font = Font.new(getcustomasset("tiny2.ttf"), Enum.FontWeight.Regular)
+	library.font = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
 
 	local config_holder 
 -- 
