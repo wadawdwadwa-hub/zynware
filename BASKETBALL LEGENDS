@@ -1,0 +1,527 @@
+--SCRIPT MADE BY SLOTHY4LOKO
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+
+local visualGui = player.PlayerGui:WaitForChild("Visual")
+local shootingElement = visualGui:WaitForChild("Shooting")
+local Shoot = ReplicatedStorage.Packages.Knit.Services.ControlService.RE.Shoot
+
+
+local config = {
+    autoGreenEnabled = false,
+    shootPower = 0.95, 
+    shootDelay = 0.25,
+    
+    autoGuardEnabled = false,
+    guardDistance = 10,
+    predictionTime = 0.3,
+    
+    speedBoostEnabled = false,
+    speedAmount = 20,
+    
+    autoReboundEnabled = false,
+    reboundOffset = 3,
+}
+
+
+local connections = {
+    autoGreen = nil,
+    autoGuard = nil,
+    speedBoost = nil,
+    autoRebound = nil,
+}
+
+
+local Window = Rayfield:CreateWindow({
+    Name = "Basketball Auto Green",
+    LoadingTitle = "Basketball Script",
+    LoadingSubtitle = "by Script Creator",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "BasketballScript",
+        FileName = "config"
+    },
+    Discord = {
+        Enabled = false,
+    },
+    KeySystem = false,
+})
+
+
+local ShootingTab = Window:CreateTab("🎯 Shooting", nil)
+local DefenseTab = Window:CreateTab("🛡️ Defense", nil)
+local MovementTab = Window:CreateTab("⚡ Movement", nil)
+local MiscTab = Window:CreateTab("⚙️ Misc", nil)
+
+
+
+local ShootingSection = ShootingTab:CreateSection("Auto Green Release")
+
+local AutoGreenToggle = ShootingTab:CreateToggle({
+    Name = "Auto Green Release",
+    CurrentValue = false,
+    Flag = "AutoGreenToggle",
+    Callback = function(value)
+        config.autoGreenEnabled = value
+        
+        if value then
+            
+            if not connections.autoGreen then
+                connections.autoGreen = shootingElement:GetPropertyChangedSignal("Visible"):Connect(function()
+                    if config.autoGreenEnabled and shootingElement.Visible == true then
+                        task.wait(config.shootDelay)
+                        Shoot:FireServer(config.shootPower)
+                    end
+                end)
+            end
+            
+            Rayfield:Notify({
+                Title = "Auto Green Enabled",
+                Content = "Perfect releases activated!",
+                Duration = 3,
+                Image = nil,
+            })
+        else
+           
+            if connections.autoGreen then
+                connections.autoGreen:Disconnect()
+                connections.autoGreen = nil
+            end
+            
+            Rayfield:Notify({
+                Title = "Auto Green Disabled",
+                Content = "Manual shooting mode",
+                Duration = 3,
+                Image = nil,
+            })
+        end
+    end,
+})
+
+local ShotTimingSlider = ShootingTab:CreateSlider({
+    Name = "Shot Release Quality",
+    Range = {50, 100},
+    Increment = 1,
+    Suffix = "%",
+    CurrentValue = 95,
+    Flag = "ShotTiming",
+    Callback = function(value)
+        config.shootPower = value / 100
+        
+        local quality = "Perfect"
+        if value < 70 then
+            quality = "Poor"
+        elseif value < 85 then
+            quality = "Mediocre"
+        elseif value < 93 then
+            quality = "Good"
+        elseif value < 98 then
+            quality = "Great"
+        end
+        
+        Rayfield:Notify({
+            Title = "Shot Quality: " .. quality,
+            Content = value .. "% release timing",
+            Duration = 2,
+            Image = nil,
+        })
+    end,
+})
+
+local DelaySlider = ShootingTab:CreateSlider({
+    Name = "Release Delay (seconds)",
+    Range = {0, 0.5},
+    Increment = 0.05,
+    Suffix = "s",
+    CurrentValue = 0.25,
+    Flag = "ShootDelay",
+    Callback = function(value)
+        config.shootDelay = value
+    end,
+})
+
+ShootingTab:CreateLabel("Shot Quality Guide:")
+ShootingTab:CreateLabel("50-69% = Poor | 70-84% = Mediocre")
+ShootingTab:CreateLabel("85-92% = Good | 93-97% = Great")
+ShootingTab:CreateLabel("98-100% = Perfect")
+
+
+
+local DefenseSection = DefenseTab:CreateSection("Auto Defense")
+
+local function getPlayerFromModel(model)
+    for _, plr in pairs(Players:GetPlayers()) do
+        if plr.Character == model then
+            return plr
+        end
+    end
+    return nil
+end
+
+local function isOnDifferentTeam(otherModel)
+    local otherPlayer = getPlayerFromModel(otherModel)
+    if not otherPlayer then return false end
+    
+    if not player.Team or not otherPlayer.Team then
+        return otherPlayer ~= player
+    end
+    
+    return player.Team ~= otherPlayer.Team
+end
+
+local function findPlayerWithBall()
+    
+    local looseBall = workspace:FindFirstChild("Basketball")
+    if looseBall and looseBall:IsA("BasePart") then
+        local closestPlayer = nil
+        local closestDistance = math.huge
+        
+        for _, model in pairs(workspace:GetChildren()) do
+            if model:IsA("Model") and model:FindFirstChild("HumanoidRootPart") and model ~= player.Character then
+                if isOnDifferentTeam(model) then
+                    local rootPart = model:FindFirstChild("HumanoidRootPart")
+                    local distance = (looseBall.Position - rootPart.Position).Magnitude
+                    
+                    if distance < closestDistance and distance < 15 then
+                        closestDistance = distance
+                        closestPlayer = model
+                    end
+                end
+            end
+        end
+        
+        if closestPlayer then
+            return closestPlayer, closestPlayer:FindFirstChild("HumanoidRootPart")
+        end
+    end
+    
+    
+    for _, model in pairs(workspace:GetChildren()) do
+        if model:IsA("Model") and model:FindFirstChild("HumanoidRootPart") and model ~= player.Character then
+            if isOnDifferentTeam(model) then
+                local basketball = model:FindFirstChild("Basketball")
+                
+                if basketball and basketball:IsA("Tool") then
+                    return model, model:FindFirstChild("HumanoidRootPart")
+                end
+            end
+        end
+    end
+    
+    return nil, nil
+end
+
+local lastPositions = {}
+
+local function autoGuard()
+    if not config.autoGuardEnabled then return end
+    if player.Character:FindFirstChild("Basketball") then return end
+    
+    local char = player.Character
+    if not char then return end
+    
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    local root = char:FindFirstChild("HumanoidRootPart")
+    if not hum or not root then return end
+    
+    local ballCarrier, ballCarrierRoot = findPlayerWithBall()
+    
+    if ballCarrier and ballCarrierRoot then
+        local distance = (root.Position - ballCarrierRoot.Position).Magnitude
+        local currentPos = ballCarrierRoot.Position
+        local velocity = Vector3.new(0, 0, 0)
+        
+        
+        if lastPositions[ballCarrier] then
+            local deltaTime = task.wait()
+            velocity = (currentPos - lastPositions[ballCarrier]) / deltaTime
+        end
+        lastPositions[ballCarrier] = currentPos
+        
+        
+        local predictedPos = currentPos + (velocity * config.predictionTime * 60)
+        local directionToOpponent = (predictedPos - root.Position).Unit
+        local defensiveOffset = directionToOpponent * 5
+        local defensivePosition = predictedPos - defensiveOffset
+        
+        
+        defensivePosition = Vector3.new(defensivePosition.X, root.Position.Y, defensivePosition.Z)
+        
+        if distance <= config.guardDistance then
+            hum:MoveTo(defensivePosition)
+            
+            
+            local VirtualInputManager = game:GetService("VirtualInputManager")
+            if distance <= 10 then
+                VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.F, false, game)
+            else
+                VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)
+            end
+        else
+            local VirtualInputManager = game:GetService("VirtualInputManager")
+            VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.F, false, game)
+        end
+    end
+end
+
+local AutoGuardToggle = DefenseTab:CreateToggle({
+    Name = "Auto Guard",
+    CurrentValue = false,
+    Flag = "AutoGuard",
+    Callback = function(value)
+        config.autoGuardEnabled = value
+        
+        if value then
+            if not connections.autoGuard then
+                connections.autoGuard = RunService.Heartbeat:Connect(autoGuard)
+            end
+        else
+            if connections.autoGuard then
+                connections.autoGuard:Disconnect()
+                connections.autoGuard = nil
+            end
+            lastPositions = {}
+        end
+    end,
+})
+
+local GuardDistanceSlider = DefenseTab:CreateSlider({
+    Name = "Guard Distance",
+    Range = {5, 20},
+    Increment = 1,
+    Suffix = " studs",
+    CurrentValue = 10,
+    Flag = "GuardDistance",
+    Callback = function(value)
+        config.guardDistance = value
+    end,
+})
+
+local PredictionSlider = DefenseTab:CreateSlider({
+    Name = "Movement Prediction",
+    Range = {0.1, 0.8},
+    Increment = 0.1,
+    Suffix = "s",
+    CurrentValue = 0.3,
+    Flag = "Prediction",
+    Callback = function(value)
+        config.predictionTime = value
+    end,
+})
+
+DefenseTab:CreateLabel("Auto Guard will predict opponent")
+DefenseTab:CreateLabel("movement and position you defensively")
+
+
+local MovementSection = MovementTab:CreateSection("Speed Controls")
+
+local function startSpeedBoost(speed)
+    local connection
+    connection = RunService.RenderStepped:Connect(function(deltaTime)
+        local char = player.Character
+        if not char then return end
+        local root = char:FindFirstChild("HumanoidRootPart")
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        if not root or not hum then return end
+
+        local moveVec = hum.MoveDirection
+        if moveVec.Magnitude > 0 then
+            local speedDelta = math.max(speed - hum.WalkSpeed, 0)
+            root.CFrame = root.CFrame + (moveVec.Unit * speedDelta * deltaTime)
+        end
+    end)
+    return function()
+        if connection then
+            connection:Disconnect()
+        end
+    end
+end
+
+local SpeedToggle = MovementTab:CreateToggle({
+    Name = "Speed Boost",
+    CurrentValue = false,
+    Flag = "SpeedBoost",
+    Callback = function(value)
+        config.speedBoostEnabled = value
+        
+        if value then
+            if connections.speedBoost then connections.speedBoost() end
+            connections.speedBoost = startSpeedBoost(config.speedAmount)
+            
+            Rayfield:Notify({
+                Title = "Speed Boost Enabled",
+                Content = "Movement speed: " .. config.speedAmount,
+                Duration = 3,
+                Image = nil,
+            })
+        else
+            if connections.speedBoost then connections.speedBoost() end
+            connections.speedBoost = nil
+        end
+    end,
+})
+
+local SpeedSlider = MovementTab:CreateSlider({
+    Name = "Speed Amount",
+    Range = {16, 30},
+    Increment = 1,
+    Suffix = " speed",
+    CurrentValue = 20,
+    Flag = "SpeedAmount",
+    Callback = function(value)
+        config.speedAmount = value
+        if config.speedBoostEnabled then
+            if connections.speedBoost then connections.speedBoost() end
+            connections.speedBoost = startSpeedBoost(config.speedAmount)
+        end
+    end,
+})
+
+MovementSection = MovementTab:CreateSection("Auto Rebound")
+
+local AutoReboundToggle = MovementTab:CreateToggle({
+    Name = "Auto Rebound",
+    CurrentValue = false,
+    Flag = "AutoRebound",
+    Callback = function(value)
+        config.autoReboundEnabled = value
+        
+        if value then
+            connections.autoRebound = RunService.RenderStepped:Connect(function()
+                if not config.autoReboundEnabled then return end
+                local char = player.Character
+                if not char then return end
+                local root = char:FindFirstChild("HumanoidRootPart")
+                if not root then return end
+
+                local closestBall = nil
+                local closestDist = math.huge
+
+                for _, child in ipairs(workspace:GetChildren()) do
+                    if child.Name == "Basketball" then
+                        local part = child:IsA("BasePart") and child or child:FindFirstChildWhichIsA("BasePart")
+                        if part then
+                            local dist = (part.Position - root.Position).Magnitude
+                            if dist < closestDist and dist <= 50 then
+                                closestDist = dist
+                                closestBall = part
+                            end
+                        end
+                    end
+                end
+
+                if closestBall then
+                    local targetPosition = closestBall.Position + closestBall.CFrame.LookVector * config.reboundOffset
+                    root.CFrame = CFrame.new(targetPosition)
+                end
+            end)
+        else
+            if connections.autoRebound then
+                connections.autoRebound:Disconnect()
+                connections.autoRebound = nil
+            end
+        end
+    end,
+})
+
+local ReboundOffsetSlider = MovementTab:CreateSlider({
+    Name = "Rebound Offset",
+    Range = {0, 6},
+    Increment = 0.5,
+    Suffix = " studs",
+    CurrentValue = 3,
+    Flag = "ReboundOffset",
+    Callback = function(value)
+        config.reboundOffset = value
+    end,
+})
+
+
+
+local MiscSection = MiscTab:CreateSection("Script Info")
+
+MiscTab:CreateLabel("Basketball Auto Green Script")
+MiscTab:CreateLabel("Version: 1.0")
+MiscTab:CreateLabel("UI: Rayfield")
+
+local ConfigSection = MiscTab:CreateSection("Configuration")
+
+local SaveButton = MiscTab:CreateButton({
+    Name = "Save Configuration",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Config Saved",
+            Content = "Settings saved successfully!",
+            Duration = 3,
+            Image = nil,
+        })
+    end,
+})
+
+local UnloadButton = MiscTab:CreateButton({
+    Name = "Unload Script",
+    Callback = function()
+       
+        for name, conn in pairs(connections) do
+            if conn then
+                if type(conn) == "function" then
+                    conn()
+                else
+                    conn:Disconnect()
+                end
+            end
+        end
+        
+        Rayfield:Notify({
+            Title = "Script Unloaded",
+            Content = "All features disabled",
+            Duration = 3,
+            Image = nil,
+        })
+        
+        Rayfield:Destroy()
+    end,
+})
+
+
+
+Rayfield:Notify({
+    Title = "Script Loaded",
+    Content = "Basketball Auto Green ready!",
+    Duration = 5,
+    Image = nil,
+})
+
+
+player.CharacterAdded:Connect(function(char)
+    character = char
+    humanoid = char:WaitForChild("Humanoid")
+    hrp = char:WaitForChild("HumanoidRootPart")
+    
+    
+    task.wait(1)
+    
+    if config.autoGreenEnabled then
+        AutoGreenToggle:Set(false)
+        task.wait(0.5)
+        AutoGreenToggle:Set(true)
+    end
+    
+    if config.speedBoostEnabled then
+        SpeedToggle:Set(false)
+        task.wait(0.5)
+        SpeedToggle:Set(true)
+    end
+end)
