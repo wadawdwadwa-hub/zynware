@@ -858,7 +858,7 @@
 						Text = "",
 						Size = dim2(0, 25, 0, 25),
 						BorderSizePixel = 0,
-						TextSize = 14,
+						TextSize = 9,
 						BackgroundColor3 = themes.preset.inline
 					})
 					
@@ -5281,7 +5281,7 @@
 					AutoButtonColor = false,
 					Size = dim2(1, 0, 1, 0),
 					BorderSizePixel = 0,
-					TextSize = 14,
+					TextSize = 9,
 					ZIndex = 2;
 					BackgroundColor3 = rgb(255, 255, 255)
 				})
