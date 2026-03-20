@@ -2319,9 +2319,9 @@
 					["Distance"] = objects[ "distance" ];
 					["Weapon"] = objects[ "weapon" ];
 					["Flag"] = objects[ "healthcount" ];
-					["Distance_Color"] = {objects[ "distance" ]};
+					["Distance_Color"] = {objects["distance"]};
 					["Weapon_Color"] = {objects[ "weapon" ]};
-					["FlagColor"] = {objects[ "healthcount" ]};
+					["FlagColor"] = {objects["FlagColor"]};
 				}
 
 				for flag,object in temp do 
