@@ -222,7 +222,7 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("proggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/ProggyClean.ttf"))
+	writefile("proggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/ProggyTiny.ttf"))
 
 	local proggy = {
 		name = "proggy",
