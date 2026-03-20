@@ -2364,8 +2364,8 @@
 		end
 
 		function library:notification(properties)
-			local time = properties.time or 5
-			local text = properties.text or properties.name or "Notification"
+			local time = properties.time
+			local text = properties.text
 			local flashing = false
 		
 			-- Instances
