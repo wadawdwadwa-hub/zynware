@@ -2222,7 +2222,7 @@
 						Name = "\0";
 						Position = dim2(0, -5, 0, 0);
 						BorderColor3 = rgb(0, 0, 0);
-						Size = dim2(0, 4, .5, 0);
+						Size = dim2(0, 3, 1, 0);
 						BorderSizePixel = 0;
 						BackgroundColor3 = rgb(0, 0, 0)
 					});
@@ -2285,7 +2285,7 @@
 						Name = "\0";
 						Size = dim2(1, 0, 0, 0);
 						BackgroundTransparency = 1;
-						Position = dim2(0, 0, -6, -5);
+						Position = dim2(0, 0, -3, -5);
 						BorderSizePixel = 0;
 						AutomaticSize = Enum.AutomaticSize.Y;
 						TextSize = 12;
