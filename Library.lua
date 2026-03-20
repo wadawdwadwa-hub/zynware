@@ -2314,14 +2314,14 @@
 
 				local temp = {
 					["Names"] = objects["name"]; 
-					["Name_Color"] = {objects["name"]};
 					["Healthbar"] = objects[ "healthbar_holder" ];
 					["Distance"] = objects[ "distance" ];
 					["Weapon"] = objects[ "weapon" ];
 					["Flag"] = objects[ "healthcount" ];
+					["Name_Color"] = {objects["name"]};
 					["Distance_Color"] = {objects["distance"]};
 					["Weapon_Color"] = {objects[ "weapon" ]};
-					["FlagColor"] = {objects["FlagColor"]};
+					["FlagColor"] = {objects["healthcount"]};
 				}
 
 				for flag,object in temp do 
