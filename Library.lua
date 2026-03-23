@@ -1223,11 +1223,7 @@
 			end 
 
 
-			while true do
-				task.wait(1)
-				cfg.change_profile()
-				cfg.set_visible(true)
-			end
+			cfg.change_profile()
 
 			return setmetatable(cfg, library)
 		end     
