@@ -1204,14 +1204,19 @@
 
 				-- inventory shit
 
-				items.inventoryholder = library:create( "Frame" , {
+
+				items.inventoryholder = library:create( "ViewportFrame" , {
 					Parent = items.LowContrast;
-					Name = "\0";
-					Position = dim2(0, 115, 0, 43);
-					BorderColor3 = rgb(0, 0, 0);
+					BackgroundTransparency = 1;
 					Size = dim2(1, -80, 0, 0);
+					BorderColor3 = rgb(0, 0, 0);
+					ZIndex = 1;
+					Position = dim2(0, 115, 0, 43);
 					BorderSizePixel = 0;
-				});	
+					BackgroundColor3 = rgb(255, 255, 255)
+				});
+
+	
 
 				library:create("UIListLayout", {
 					Parent = items.inventoryholder,
@@ -1875,6 +1880,7 @@
 				
 				local column = setmetatable(items, library):column() 
 				window.esp_section = column:section({name = "Main"})
+				
 			--  
 
 			-- playerlist 
