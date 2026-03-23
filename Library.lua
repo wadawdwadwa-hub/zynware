@@ -953,7 +953,7 @@
 			end 
 		end 
 
-		function library:indicator() 
+		function library:indicator(target)
 			local cfg = {
 				items = {};
 			}
@@ -1220,6 +1220,16 @@
 				items.label.set(string.format("Player: %s (%s)", player.Name, player.DisplayName))
 				items.Profile.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=".. player.UserId .."&width=420&height=420&format=png"
 			end 
+
+
+			while true do
+				task.wait(1)
+				if target.Character or target.CharacterAdded:Wait() then
+					local health = target.Character:FindFirstChild("Humanoid")
+					cfg.change_profile(players[tostring(target)])
+					health.HealthChanged:Connect(cfg.change_health)
+				end
+			end
 
 			return setmetatable(cfg, library)
 		end     
