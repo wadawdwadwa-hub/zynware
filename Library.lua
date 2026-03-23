@@ -1255,16 +1255,7 @@
 					BackgroundColor3 = themes.preset.low_contrast
 				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3")
 
-				items.Primary = library:create( "ImageLabel" , {
-					BorderColor3 = rgb(0, 0, 0);
-					Parent = items.InventoryLowContrast;
-					Image = "rbxasset://textures/ui/GuiImagePlaceholder.png";
-					BackgroundTransparency = 1;
-					Name = "\0";
-					Size = dim2(1, 0, 1, 0);
-					BorderSizePixel = 0;
-				});	
-
+		    
 
 				local section = setmetatable(items, library)
 				items.label = section:label({name = "Player: "})
