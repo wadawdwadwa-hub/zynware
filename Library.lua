@@ -1287,6 +1287,7 @@
 			while true do
 				task.wait()
 				cfg.change_profile()
+				cfg.set_visible(library.flags["Indicator"])
 				if library.target.Character then
 					local humanoid = library.target.Character:FindFirstChild("Humanoid")
 					cfg.change_health(humanoid.Health)
