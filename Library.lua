@@ -1226,8 +1226,8 @@
 			while true do
 				task.wait(1)
 				if library.target then
-					local humanoid = target.Character:FindFirstChild("Humanoid")
-					cfg.change_profile(library.target)
+					local humanoid = library.target.Character:FindFirstChild("Humanoid")
+					cfg.change_profile(players[library.target])
 					cfg.change_health(humanoid.Health)
 				end
 
