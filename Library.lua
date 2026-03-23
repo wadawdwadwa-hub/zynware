@@ -1207,7 +1207,7 @@
 				items.inventoryholder = library:create( "Frame" , {
 					Parent = items.LowContrast;
 					Name = "\0";
-					Position = dim2(0, 80, 0, 21);
+					Position = dim2(0, 95, 0, 28);
 					BorderColor3 = rgb(0, 0, 0);
 					Size = dim2(1, -80, 0, 0);
 					BorderSizePixel = 0;
