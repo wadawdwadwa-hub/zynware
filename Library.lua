@@ -1223,7 +1223,10 @@
 			end 
 
 
-			cfg.change_profile()
+			while true do
+				task.wait(1)
+				cfg.change_profile()
+			end
 
 			return setmetatable(cfg, library)
 		end     
