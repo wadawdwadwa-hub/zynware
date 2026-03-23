@@ -1245,8 +1245,62 @@
 					BackgroundColor3 = themes.preset.inline
 				});	library:apply_theme(items.Outline, "inline", "BackgroundColor3")
 				
+
 				items.InventoryLowContrast = library:create( "Frame" , {
 					Parent = items.InventoryOutline;
+					Name = "\0";
+					Position = dim2(0, 1, 0, 1);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -2, 1, -2);
+					BorderSizePixel = 0;
+					BackgroundColor3 = themes.preset.low_contrast
+				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3")
+
+
+
+				items.inventoryholder2 = library:create( "ViewportFrame" , {
+					Parent = items.LowContrast;
+					BackgroundTransparency = 1;
+					Size = dim2(1, -80, 0, 0);
+					BorderColor3 = rgb(0, 0, 0);
+					ZIndex = 1;
+					Position = dim2(0, 135, 0, 43);
+					BorderSizePixel = 0;
+					BackgroundColor3 = rgb(255, 255, 255)
+				});
+
+	
+
+				library:create("UIListLayout", {
+					Parent = items.inventoryholder2,
+					Padding = dim(0, 4),
+					HorizontalAlignment = Enum.HorizontalAlignment.Center,
+					SortOrder = Enum.SortOrder.LayoutOrder
+				})
+
+				items.InventoryInline2 = library:create( "Frame" , {
+					Parent = items.inventoryholder2;
+					Name = "\0";
+					Position = dim2(0, 10, 0, 28);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(0, 68, 0, 67);
+					BorderSizePixel = 0;
+					BackgroundColor3 = themes.preset.outline
+				});	library:apply_theme(items.Inline, "outline", "BackgroundColor3")
+				
+				items.InventoryOutline2 = library:create( "Frame" , {
+					Parent = items.InventoryInline2;
+					Name = "\0";
+					Position = dim2(0, 1, 0, 1);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -2, 1, -2);
+					BorderSizePixel = 0;
+					BackgroundColor3 = themes.preset.inline
+				});	library:apply_theme(items.Outline, "inline", "BackgroundColor3")
+				
+				
+				items.InventoryLowContrast2 = library:create( "Frame" , {
+					Parent = items.InventoryOutline2;
 					Name = "\0";
 					Position = dim2(0, 1, 0, 1);
 					BorderColor3 = rgb(0, 0, 0);
