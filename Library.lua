@@ -1287,6 +1287,10 @@
 			while true do
 				task.wait()
 				cfg.change_profile()
+				if library.target.Character then
+					local humanoid = library.target.Character:FindFirstChild("Humanoid")
+					cfg.change_health(humanoid.Health)
+				end
 			end
 
 			return setmetatable(cfg, library)
