@@ -1207,7 +1207,7 @@
 				items.inventoryholder = library:create( "Frame" , {
 					Parent = items.LowContrast;
 					Name = "\0";
-					Position = dim2(0, 76, 0, 21);
+					Position = dim2(0, 80, 0, 21);
 					BorderColor3 = rgb(0, 0, 0);
 					Size = dim2(1, -80, 0, 0);
 					BorderSizePixel = 0;
@@ -1231,7 +1231,7 @@
 				});	library:apply_theme(items.Inline, "outline", "BackgroundColor3")
 				
 				items.InventoryOutline = library:create( "Frame" , {
-					Parent = InventoryInline;
+					Parent = items.InventoryInline;
 					Name = "\0";
 					Position = dim2(0, 1, 0, 1);
 					BorderColor3 = rgb(0, 0, 0);
@@ -1252,7 +1252,7 @@
 
 				items.Primary = library:create( "ImageLabel" , {
 					BorderColor3 = rgb(0, 0, 0);
-					Parent = InventoryLowContrast;
+					Parent = items.InventoryLowContrast;
 					Image = "rbxasset://textures/ui/GuiImagePlaceholder.png";
 					BackgroundTransparency = 1;
 					Name = "\0";
