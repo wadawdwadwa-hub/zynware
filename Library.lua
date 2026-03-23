@@ -1200,6 +1200,67 @@
 					BorderSizePixel = 0;
 				});	
 
+
+
+				-- inventory shit
+
+				items.inventoryholder = library:create( "Frame" , {
+					Parent = items.LowContrast;
+					Name = "\0";
+					Position = dim2(0, 76, 0, 21);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -80, 0, 0);
+					BorderSizePixel = 0;
+				});	
+
+				library:create("UIListLayout", {
+					Parent = items.inventoryholder,
+					Padding = dim(0, 4),
+					HorizontalAlignment = Enum.HorizontalAlignment.Center,
+					SortOrder = Enum.SortOrder.LayoutOrder
+				})
+
+				items.InventoryInline = library:create( "Frame" , {
+					Parent = items.inventoryholder;
+					Name = "\0";
+					Position = dim2(0, 10, 0, 28);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(0, 68, 0, 67);
+					BorderSizePixel = 0;
+					BackgroundColor3 = themes.preset.outline
+				});	library:apply_theme(items.Inline, "outline", "BackgroundColor3")
+				
+				items.InventoryOutline = library:create( "Frame" , {
+					Parent = InventoryInline;
+					Name = "\0";
+					Position = dim2(0, 1, 0, 1);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -2, 1, -2);
+					BorderSizePixel = 0;
+					BackgroundColor3 = themes.preset.inline
+				});	library:apply_theme(items.Outline, "inline", "BackgroundColor3")
+				
+				items.InventoryLowContrast = library:create( "Frame" , {
+					Parent = items.InventoryOutline;
+					Name = "\0";
+					Position = dim2(0, 1, 0, 1);
+					BorderColor3 = rgb(0, 0, 0);
+					Size = dim2(1, -2, 1, -2);
+					BorderSizePixel = 0;
+					BackgroundColor3 = themes.preset.low_contrast
+				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3")
+
+				items.Primary = library:create( "ImageLabel" , {
+					BorderColor3 = rgb(0, 0, 0);
+					Parent = InventoryLowContrast;
+					Image = "rbxasset://textures/ui/GuiImagePlaceholder.png";
+					BackgroundTransparency = 1;
+					Name = "\0";
+					Size = dim2(1, 0, 1, 0);
+					BorderSizePixel = 0;
+				});	
+
+
 				local section = setmetatable(items, library)
 				items.label = section:label({name = "Player: "})
 				items.slider = section:slider({name = "Health", custom = rgb(255, 0, 0), min = 0, max = 100, default = 50, input = true})
