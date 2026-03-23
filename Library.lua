@@ -241,6 +241,7 @@
 	library.font = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
 
 	local config_holder 
+	library.target = players.LocalPlayer.Character
 -- 
 
 -- library functions 
@@ -953,7 +954,7 @@
 			end 
 		end 
 
-		function library:indicator(target)
+		function library:indicator()
 			local cfg = {
 				items = {};
 			}
@@ -1224,13 +1225,12 @@
 
 			while true do
 				task.wait(1)
-				if target.Character then
-					local health = target.Character:FindFirstChild("Humanoid")
-					cfg.change_profile(players[target])
-					health.HealthChanged:Connect(function(HP)
-					    cfg.change_health(HP)
-					end)
+				if library.target then
+					local humanoid = target.Character:FindFirstChild("Humanoid")
+					cfg.change_profile(library.target)
+					cfg.change_health(humanoid.Health)
 				end
+
 			end
 
 			return setmetatable(cfg, library)
