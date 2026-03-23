@@ -1224,10 +1224,12 @@
 
 			while true do
 				task.wait(1)
-				if target.Character or target.CharacterAdded:Wait() then
+				if target.Character then
 					local health = target.Character:FindFirstChild("Humanoid")
-					cfg.change_profile(players[tostring(target)])
-					health.HealthChanged:Connect(cfg.change_health)
+					cfg.change_profile(players[target])
+					health.HealthChanged:Connect(function(HP)
+					    cfg.change_health(HP)
+					end)
 				end
 			end
 
