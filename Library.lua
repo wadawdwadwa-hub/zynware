@@ -965,7 +965,7 @@
 					Name = "\0";
 					Position = dim2(0, 400, 0, 500);
 					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(0, 322, 0, 170);
+					Size = dim2(0, 322, 0, 190);
 					BorderSizePixel = 0;
 					BackgroundColor3 = themes.preset.outline
 				});	library:apply_theme(items.Window, "outline", "BackgroundColor3"); library:draggify(items.Window)
@@ -1207,7 +1207,7 @@
 				items.inventoryholder = library:create( "Frame" , {
 					Parent = items.LowContrast;
 					Name = "\0";
-					Position = dim2(0, 95, 0, 28);
+					Position = dim2(0, 100, 0, 24);
 					BorderColor3 = rgb(0, 0, 0);
 					Size = dim2(1, -80, 0, 0);
 					BorderSizePixel = 0;
