@@ -1258,13 +1258,15 @@
 
 
 
+			-- inventory viewer 2
+
 				items.inventoryholder2 = library:create( "ViewportFrame" , {
 					Parent = items.LowContrast;
 					BackgroundTransparency = 1;
 					Size = dim2(1, -80, 0, 0);
 					BorderColor3 = rgb(0, 0, 0);
 					ZIndex = 1;
-					Position = dim2(0, 135, 0, 43);
+					Position = dim2(0, 170, 0, 43);
 					BorderSizePixel = 0;
 					BackgroundColor3 = rgb(255, 255, 255)
 				});
