@@ -1217,17 +1217,16 @@
 				items.slider.set(int)
 			end
 
-			function cfg.change_profile(player)
-				items.label.set(string.format("Player: %s (%s)", player.Name, player.DisplayName))
-				items.Profile.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=".. player.UserId .."&width=420&height=420&format=png"
+			function cfg.change_profile()
+				items.label.set(string.format("Player: %s (%s)", library.target.Name, library.target.DisplayName))
+				items.Profile.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=".. library.target.UserId .."&width=420&height=420&format=png"
 			end 
 
 
 			while true do
 				task.wait(1)
-				local humanoid = library.target.Character:FindFirstChild("Humanoid")
-				cfg.change_profile(players:FindFirstChild(library.target))
-				cfg.change_health(humanoid.Health)
+				cfg.change_profile()
+				cfg.set_visible(true)
 			end
 
 			return setmetatable(cfg, library)
