@@ -1224,7 +1224,7 @@
 
 
 			while true do
-				task.wait(1)
+				task.wait()
 				cfg.change_profile()
 			end
 
@@ -1640,7 +1640,6 @@
 					image = "rbxassetid://115194686863276",
 				})
 
-				local watermark = library:watermark({default = os.date('Atlanta |  - %b %d %Y - %H:%M:%S')})  
 
 				task.spawn(function()
 					while task.wait(1) do 
