@@ -2293,7 +2293,7 @@
 						FontFace = library.font;
 						TextColor3 = flags["FlagColor"].Color;
 						BorderColor3 = rgb(0, 0, 0);
-						Text = "100";
+						Text = "100HP";
 						Parent = library.cache;
 						TextStrokeTransparency = 0;
 						Name = "\0";
