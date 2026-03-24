@@ -2297,9 +2297,9 @@
 						Parent = library.cache;
 						TextStrokeTransparency = 0;
 						Name = "\0";
-						Size = dim2(1, 0, 0, 0);
+						Size = dim2(1, -3, 1, -2);
 						BackgroundTransparency = 1;
-						Position = dim2(1, -2, 1, -2);
+						Position = dim2(0, 1, 0, 1);
 						BorderSizePixel = 0;
 						AutomaticSize = Enum.AutomaticSize.Y;
 						TextSize = 12;
