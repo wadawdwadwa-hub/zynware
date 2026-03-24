@@ -2299,7 +2299,7 @@
 						Name = "\0";
 						Size = dim2(1, 0, 0, 0);
 						BackgroundTransparency = 1;
-						Position = dim2(0, -2, 0, 0);
+						Position = dim2(0, 2, 0, 0);
 						BorderSizePixel = 0;
 						AutomaticSize = Enum.AutomaticSize.Y;
 						TextSize = 12;
