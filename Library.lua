@@ -2297,7 +2297,7 @@
 						Parent = library.cache;
 						TextStrokeTransparency = 0;
 						Name = "\0";
-						Size = dim2(1, -3, 1, -2);
+						Size = dim2(-3, -3, 1, -2);
 						BackgroundTransparency = 1;
 						Position = dim2(0, 1, 0, 1);
 						BorderSizePixel = 0;
