@@ -261,7 +261,7 @@
 
     }
 
-	library.font = library.fonttypes.ProggyClean
+	library.font = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular)
 
 	local config_holder 
 	library.target = players.LocalPlayer.Character
