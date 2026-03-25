@@ -255,13 +255,10 @@
 	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
     writefile("minecraftia.ttf", http_service:JSONEncode(proggy))
 
-    library.fonttypes = {
-	  ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular),
-	  Minecraftia = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular),
+    library.ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular),
+	library.Minecraftia = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular),
 
-    }
-
-	library.font = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular)
+	library.font = library.ProggyClean
 
 	local config_holder 
 	library.target = players.LocalPlayer.Character
