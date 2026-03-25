@@ -223,6 +223,8 @@
 	end 
 
 	writefile("prggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/ProggyClean.ttf"))
+    writefile("minecraftia.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/Minecraftia-Regular.ttf"))
+	
 
 	local proggy = {
 		name = "proggy",
@@ -236,9 +238,30 @@
 		}
 	}
 
-	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
 
-	library.font = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
+    local minecraftia = {
+		name = "minecraftia",
+		faces = {
+			{
+				name = "Regular",
+				weight = 100,
+				style = "normal",
+				assetId = getcustomasset("minecraftia.ttf")
+			}
+		}
+	}
+
+
+	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
+    writefile("minecraftia.ttf", http_service:JSONEncode(proggy))
+
+    library.fonttypes = {
+	  ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular),
+	  Minecraftia = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular),
+
+    }
+
+	library.font = library.fonttypes.ProggyClean
 
 	local config_holder 
 	library.target = players.LocalPlayer.Character
