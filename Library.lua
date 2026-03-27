@@ -271,7 +271,7 @@
     writefile("smallestpixel2.ttf", http_service:JSONEncode(smallestpixel7))
 
     library.ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
-	library.Minecraftia = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular)
+	library.Minecraftia = Font.new(getcustomasset("minecraftia2.ttf"), Enum.FontWeight.Regular)
     library.SmallestPixel7 = Font.new(getcustomasset("smallestpixel2.ttf"), Enum.FontWeight.Regular)
 
 	library.font = library.ProggyClean
