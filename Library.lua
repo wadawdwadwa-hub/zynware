@@ -267,7 +267,7 @@
 
 
 	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
-    writefile("minecraftia2.ttf", http_service:JSONEncode(proggy))
+    writefile("minecraftia2.ttf", http_service:JSONEncode(minecraftia))
     writefile("smallestpixel2.ttf", http_service:JSONEncode(smallestpixel7))
 
     library.ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
