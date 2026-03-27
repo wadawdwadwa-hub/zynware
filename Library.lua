@@ -224,7 +224,7 @@
 
 	writefile("prggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/ProggyClean.ttf"))
     writefile("minecraftia.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/Minecraftia-Regular.ttf"))
-    writefile("smallestpixel7.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
+    writefile("smallestpixel7.ttf", game:HttpGet("https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/Monaco.ttf"))
 	
 
 	local proggy = {
@@ -258,7 +258,7 @@
 		faces = {
 			{
 				name = "Regular",
-				weight = 100,
+				weight = 400,
 				style = "normal",
 				assetId = getcustomasset("smallestpixel7.ttf")
 			}
