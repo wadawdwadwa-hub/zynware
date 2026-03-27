@@ -272,7 +272,7 @@
 
     library.ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
 	library.Minecraftia = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular)
-    library.SmallestPixel7 = Font.new(getcustomasset("smallestpixel7.ttf"), Enum.FontWeight.Regular)
+    library.SmallestPixel7 = Font.new(getcustomasset("smallestpixel2.ttf"), Enum.FontWeight.Regular)
 
 	library.font = library.ProggyClean
     library.target = players.LocalPlayer.Character
