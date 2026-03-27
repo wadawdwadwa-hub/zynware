@@ -224,6 +224,7 @@
 
 	writefile("prggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/ProggyClean.ttf"))
     writefile("minecraftia.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/Minecraftia-Regular.ttf"))
+    writefile("smallestpixel7.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
 	
 
 	local proggy = {
@@ -252,11 +253,26 @@
 	}
 
 
+    local smallestpixel7 = {
+		name = "smallestpixel",
+		faces = {
+			{
+				name = "Regular",
+				weight = 100,
+				style = "normal",
+				assetId = getcustomasset("smallestpixel7.ttf")
+			}
+		}
+	}
+
+
 	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
     writefile("minecraftia.ttf", http_service:JSONEncode(proggy))
+    writefile("smallestpixel2.ttf", http_service:JSONEncode(smallestpixel7))
 
     library.ProggyClean = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
 	library.Minecraftia = Font.new(getcustomasset("minecraftia.ttf"), Enum.FontWeight.Regular)
+    library.SmallestPixel7 = Font.new(getcustomasset("smallestpixel7.ttf"), Enum.FontWeight.Regular)
 
 	library.font = library.ProggyClean
     library.target = players.LocalPlayer.Character
