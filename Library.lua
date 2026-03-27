@@ -224,7 +224,7 @@
 
 	writefile("prggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/raw/refs/heads/main/fonts/ProggyClean.ttf"))
     writefile("minecraftia.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/Minecraftia-Regular.ttf"))
-    writefile("smallestpixel7.ttf", game:HttpGet("https://github.com/sametexe001/luas/raw/refs/heads/main/fonts/Monaco.ttf"))
+    writefile("smallestpixel7.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
 	
 
 	local proggy = {
