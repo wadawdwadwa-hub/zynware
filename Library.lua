@@ -275,6 +275,9 @@
     library.SmallestPixel7 = Font.new(getcustomasset("smallestpixel2.ttf"), Enum.FontWeight.Regular)
 
 	library.font = library.ProggyClean
+    library.ProggyFont = library.ProggyClean
+    library.MinecraftiaFont = library.Minecraftia
+    library.SmallestPixel7Font = library.SmallestPixel7
     library.target = players.LocalPlayer.Character
 	local config_holder 
 -- 
