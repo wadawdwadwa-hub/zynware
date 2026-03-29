@@ -1870,7 +1870,7 @@
 				local column = setmetatable(items, library):column() 
 				local section = column:section({name = "Playerlist"})
 				local playerlist = section:playerlist({})
-				section:dropdown({name = "Priority", items = {"Enemy", "Priority", "Neutral", "Friendly"}, default = "Neutral", flag = "PLAYERLIST_DROPDOWN", callback = function(text)
+				section:dropdown({name = "Priority", items = {"Enemy", "Priority", "Neutral", "Friendly", "Team"}, default = "Neutral", flag = "PLAYERLIST_DROPDOWN", callback = function(text)
 					library.prioritize(text)
 				end})
 			--  
