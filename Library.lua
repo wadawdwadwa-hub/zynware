@@ -232,7 +232,7 @@
 		faces = {
 			{
 				name = "Regular",
-				weight = 100,
+				weight = 400,
 				style = "normal",
 				assetId = getcustomasset("prggy.ttf")
 			}
