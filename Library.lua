@@ -222,24 +222,24 @@
 		makefolder(library.directory .. path)
 	end 
 
-	writefile("prggy.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
+	writefile("smallestpixl.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
     
 
-	local proggy = {
-		name = "proggy",
+	local smallestpixel7 = {
+		name = "smallestpixel7",
 		faces = {
 			{
 				name = "Regular",
-				weight = 400,
+				weight = 200,
 				style = "normal",
-				assetId = getcustomasset("prggy.ttf")
+				assetId = getcustomasset("smallestpixl.ttf")
 			}
 		}
 	}
 
 
-	writefile("prggy2.ttf", http_service:JSONEncode(proggy))
-	library.font = Font.new(getcustomasset("prggy2.ttf"), Enum.FontWeight.Regular)
+	writefile("smallestpixel7uwu.ttf", http_service:JSONEncode(smallestpixel7))
+	library.font = Font.new(getcustomasset("smallestpixel7uwu.ttf"), Enum.FontWeight.Regular)
     library.target = players.LocalPlayer.Character
 	local config_holder 
 -- 
