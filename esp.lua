@@ -1,8 +1,7 @@
 local lib = {}
+local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
 lib.__index = lib
 lib.visualcache = {}
-local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
-
 
 
 local WS, ws = services:GetService("Workspace"), services:CloneReference(workspace)
@@ -25,18 +24,17 @@ local CameraOrigin = Vector2(CameraViewport.X / 2, CameraViewport.Y / 2)
 
 
 writefile("ProggyClean1.ttf", game:HttpGet("https://github.com/bluescan/proggyfonts/raw/refs/heads/master/ProggyOriginal/ProggyClean.ttf"))
-
 local ProggyClean = {
 	name = "ProggyClean",
 	faces = {
-	    {
-			name = "Regular",
-			weight = 200,
-			style = "normal",
-			assetId = getcustomasset("ProggyClean1.ttf")
-		}
+	  {
+		name = "Regular",
+		weight = 200,
+		style = "normal",
+		assetId = getcustomasset("ProggyClean1.ttf")
 	  }
 	}
+}
 
 
 
@@ -1029,4 +1027,4 @@ end
 
 
 
-return Lib
+return lib
