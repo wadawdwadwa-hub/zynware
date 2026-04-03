@@ -1015,10 +1015,6 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         end
     end
 
-
-	else
-
-        lib:disconnect(self)
     
       end
     end
