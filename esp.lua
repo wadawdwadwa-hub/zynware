@@ -51,6 +51,7 @@ function lib:DrawGui(self)
 	obj.holder.AlwaysOnTop = true
     obj.holder.StudsOffset = Vector3(0, .45)
     
+
     obj.chamsholder.Parent = obj.holder
 
 
@@ -153,6 +154,7 @@ end
 
 function lib:disconnect(self)
     lib.visualcache[self].holder:Destroy()
+    task.wait()
     lib.visualcache[self].connection:Disconnect()
     lib.visualcache[self] = nil
 end
@@ -770,8 +772,8 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
   if cache.character and services:findfirstchild(cache.character, "HumanoidRootPart") and services:findfirstchild(cache.character, "Humanoid") then
     local getName = Players:GetPlayerFromCharacter(cache.character)
     --Players:GetPlayerFromCharacter(cache.character)
-    cache.root, cache.humanoid, cache.weapon, cache.iscornerbox, cache.isfullbox, cache.isgradientenabled = cache.character["HumanoidRootPart"], cache.character["Humanoid"], services:findfirstchildofclass(cache.character["Equipped"], "Model"), lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os, lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os, lib2.flags["BoxFillToggle"] and lib2.flags["Boxes"] and os
-    --cache.root, cache.humanoid, cache.weapon, cache.iscornerbox = cache.character["HumanoidRootPart"], cache.character["Humanoid"], services:findfirstchildofclass(cache.character["Equipped"], "Model"), lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os
+    cache.root, cache.humanoid, cache.weapon, cache.iscornerbox, cache.isfullbox, cache.isgradientenabled = cache.character["HumanoidRootPart"], "Weapon", lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os, lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os, lib2.flags["BoxFillToggle"] and lib2.flags["Boxes"] and os
+    --cache.root, cache.humanoid, cache.weapon, cache.iscornerbox, cache.isfullbox, cache.isgradientenabled = cache.character["HumanoidRootPart"], cache.character["Humanoid"], services:findfirstchildofclass(cache.character["Equipped"], "Model"), lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os, lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os, lib2.flags["BoxFillToggle"] and lib2.flags["Boxes"] and os
 
 
 
