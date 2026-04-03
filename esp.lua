@@ -152,7 +152,7 @@ end
 
 
 function lib:disconnect(self)
-    lib.visualcache[self].holder:Destroy()
+    --lib.visualcache[self].holder:Destroy()
     lib.visualcache[self].connection:Disconnect()
     setmetatable(lib.visualcache[self], nil)
 end
