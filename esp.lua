@@ -7,7 +7,6 @@ lib.visualcache = {}
 local WS, ws = services:GetService("Workspace"), services:CloneReference(workspace)
 local Players, ReplicatedStorage, RunService, TweenService, UserInputService, Lighting, Camera, Drawing, HttpService = services:GetService("Players"), services:GetService("ReplicatedStorage"), services:GetService("RunService"), services:GetService("TweenService"), services:GetService("UserInputService"), services:GetService("Lighting"), services:CloneReference(workspace.CurrentCamera), Drawing.new, services:GetService("HttpService")
 local Client, ClientChar = Players.LocalPlayer, Players.LocalPlayer.Character
-local mousePos = Client:GetMouse()
 
 
 local tan, floor, rad, clamp, round = services:CloneFunction(math.tan), services:CloneFunction(math.floor), services:CloneFunction(math.rad), services:CloneFunction(math.clamp), services:CloneFunction(math.round)
