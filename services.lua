@@ -28,12 +28,17 @@ end
 
 
 function lib:wtvp(pos)
-    return Camera:WorldToViewportPoint(pos)
+    return workspace.CurrentCamera:WorldToViewportPoint(pos)
 end
 
 
 function lib:wtsp(pos)
-    return Camera:WorldToScreenPoint(pos)(pos)
+    return workspace.CurrentCamera:WorldToScreenPoint(pos)(pos)
+end
+
+
+function lib:return2DPos(position)
+    return Vector2.new(position.X, position.Y)
 end
 
 
