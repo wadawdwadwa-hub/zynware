@@ -154,10 +154,9 @@ end
 
 
 function lib:disconnect(self)
-    lib[self].holder:Destroy()
-    lib[self].connection:Disconnect()
-    lib[self] = nil
-    setmetatable(lib.visualcache[self] nil)
+    lib.visualcache[self].holder:Destroy()
+    lib.visualcache[self].connection:Disconnect()
+    setmetatable(lib.visualcache[self], nil)
 end
 
 
@@ -1061,6 +1060,8 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
     end
   end)
 end
+
+
 
 
 return Lib
