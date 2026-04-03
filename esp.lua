@@ -1,7 +1,7 @@
 local lib = {}
-local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
 lib.__index = lib
 lib.visualcache = {}
+local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
 
 
 
@@ -165,18 +165,17 @@ function lib:ESPObject(self, lib2)
     local esp = lib:DrawGui(self)
     local cache = esp.cache
     setmetatable(lib.visualcache, esp)
-    --local bonecache = lib:DrawSkeleton(self)
+ 
 
 
-
-   function lib:returnflagcolor(color)
+    function lib:returnflagcolor(color)
       return lib2.flags[color].Color
-   end
+    end
 
 
-   function lib:returnflagtransparency(color)
+    function lib:returnflagtransparency(color)
       return lib2.flags[color].Transparency
-   end
+    end
 
 
     function lib:returngradientcolor(color, colortwo)
