@@ -45,7 +45,7 @@ lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Re
 
 function lib:DrawGui(self)
 	local obj = {holder = New("BillboardGui"), chams = New("Highlight"), cache = {}, connection, colors = New("Folder"), borders = New("Folder"), chamsholder = New("Folder")}
-	obj.holder.Name = tostring(self)
+	obj.holder.Name = self.Name
     obj.holder.Size = dim2(7, 0, 7.5, 0)
 	obj.holder.Parent = hideui
 	obj.holder.AlwaysOnTop = true
@@ -54,7 +54,7 @@ function lib:DrawGui(self)
     obj.chamsholder.Parent = obj.holder
 
 
-	obj.chams.Name = tostring(self)
+	obj.chams.Name = self.Name
     obj.chams.Parent = obj.holder
 
 
