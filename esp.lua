@@ -153,7 +153,6 @@ end
 
 
 function lib:disconnect(self)
-    lib.visualcache[self].holder:Destroy()
     task.wait()
     lib.visualcache[self].connection:Disconnect()
     lib.visualcache[self] = nil
