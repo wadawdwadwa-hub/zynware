@@ -947,7 +947,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PlayerName.Visible = lib2.flags["Names"] and os
         UI.PlayerName.TextColor3 = returnflagcolor("Name_Color")
         UI.PlayerName.TextSize = lib2.flags["TextSize"]
-        UI.PlayerName.FontFace = lib2.font
+        UI.PlayerName.FontFace = lib.ProggyClean
     end
 
 
@@ -958,7 +958,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.DistanceText.Position = dim2(0.13, 0, .999, 0)
         UI.DistanceText.TextColor3 = returnflagcolor("Distance_Color")
         UI.DistanceText.TextSize = lib2.flags["TextSize"]
-        UI.DistanceText.FontFace = cheat.font
+        UI.DistanceText.FontFace = lib.ProggyClean
     end
 
 
@@ -970,7 +970,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.WeaponText.Position = dim2(0.13, 0, .999, 0)
         UI.WeaponText.TextColor3 = returnflagcolor("Weapon_Color")
         UI.WeaponText.TextSize = lib2.flags["TextSize"]
-        UI.WeaponText.FontFace = cheat.font
+        UI.WeaponText.FontFace = lib.ProggyClean
     end
 
 
@@ -982,7 +982,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.FlagText.Position = dim2(.0999, 0, .15, 0)
         UI.FlagText.TextColor3 = returnflagcolor("FlagColor")
         UI.FlagText.TextSize = lib2.flags["TextSize"]
-        UI.FlagText.FontFace = cheat.font
+        UI.FlagText.FontFace = lib.ProggyClean
     end
 
 
@@ -994,7 +994,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PriorityFlag.Position = dim2(0.78, 0, .15, 0)
         UI.PriorityFlag.TextColor3 = returnflagcolor(lib2.get_priority(self))
         UI.PriorityFlag.TextSize = lib2.flags["TextSize"]
-        UI.PriorityFlag.FontFace = cheat.font
+        UI.PriorityFlag.FontFace = lib.ProggyClean
     end
 
 
