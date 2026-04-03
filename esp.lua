@@ -770,7 +770,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
   if cache.character and services:findfirstchild(cache.character, "HumanoidRootPart") and services:findfirstchild(cache.character, "Humanoid") then
     local getName = Players:GetPlayerFromCharacter(cache.character)
     --Players:GetPlayerFromCharacter(cache.character)
-    cache.root, cache.humanoid, cache.weapon, cache.iscornerbox = cache.character["HumanoidRootPart"], cache.character["Humanoid"], "weapon", lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os
+    cache.root, cache.humanoid, cache.weapon, cache.iscornerbox, cache.isfullbox, cache.isgradientenabled = cache.character["HumanoidRootPart"], cache.character["Humanoid"], services:findfirstchildofclass(cache.character["Equipped"], "Model"), lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os, lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os, lib2.flags["BoxFillToggle"] and lib2.flags["Boxes"] and os
     --cache.root, cache.humanoid, cache.weapon, cache.iscornerbox = cache.character["HumanoidRootPart"], cache.character["Humanoid"], services:findfirstchildofclass(cache.character["Equipped"], "Model"), lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os
 
 
@@ -913,25 +913,25 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.Bottom.Size = dim2(1, 0 * distancemath / -.75, 0, -1)
         UI.BottomC.Size = UI.Bottom.Size
         UI.BottomC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Bottom.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
-        UI.BottomC.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
+        UI.Bottom.Visible = cache.isfullbox
+        UI.BottomC.Visible = cache.isfullbox
 
 
         UI.Left.Size = dim2(0, 1 * distancemath - -.75, 1, 0)
         UI.LeftC.Size = UI.Left.Size
         UI.LeftC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Left.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
-        UI.LeftC.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
+        UI.Left.Visible = cache.isfullbox
+        UI.LeftC.Visible = cache.isfullbox
 
         
         UI.Right.Size = dim2(0, 1 * distancemath - -.75, 1, 0)
         UI.RightC.Size = UI.Right.Size
         UI.RightC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Right.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
-        UI.RightC.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
+        UI.Right.Visible = cache.isfullbox
+        UI.RightC.Visible = cache.isfullbox
         
 
-        UI.Fill.Visible = lib2.flags["BoxFillToggle"] and lib2.flags["Boxes"] and os
+        UI.Fill.Visible = cache.isgradientenabled
         UI.Fill.UIGradient.Color = returngradientcolor("Fill_Color_One", "Fill_Color_Two")
         UI.Fill.UIGradient.Transparency = returnGradientTransparency("Fill_Color_One", "Fill_Color_Two")
         UI.Fill.UIGradient.Rotation += .2
