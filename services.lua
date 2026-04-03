@@ -42,7 +42,8 @@ function lib:return2DPos(position)
 end
 
 
-function lib:framelimit(rendertime, deltatime, fps)
+function lib:framelimit(deltatime, fps)
+	local rendertime = 0
     rendertime += deltatime
 	if (rendertime < 1 / fps) then
 		return
