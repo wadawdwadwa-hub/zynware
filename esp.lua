@@ -775,7 +775,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
 
 
 
-  if cache.root ~= nil and cache.humanoid ~= nil then
+  if cache.root ~= nil and cache.humanoid ~= nil and lib2.flags["Enabled"] then
     local pos, os = services:wtvp(cache.root.Position)
     local distancemath = floor((cache.root.Size.X - cache.root.Size.Y / self.character.WorldPivot.Position.Magnitude * cache.root.Position.Magnitude / pos.Magnitude * 10))
     --floor((cache.root.Size.X - cache.root.Size.Y * 1 / CameraVector.Magnitude * cache.root.Position.Magnitude / pos.Magnitude * 10))
@@ -783,7 +783,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
     
     cache.getweapon = function()
       if cache.weapon then
-        return "[" .. tostring(cache.weapon) .. "]"
+        return "[" .. cache.weapon.Name .. "]"
       else
         return "[empty]"
       end
