@@ -42,6 +42,21 @@ function lib:return2DPos(position)
 end
 
 
+
+function lib:GarbageCollection(func)
+ for i, v in next, getgc(true) do
+   if typeof(v) ~= "function" then
+     continue
+  end
+
+  local info = debug.getinfo(v)
+    if info.name == func then
+      return v
+    end
+  end
+end
+
+
 function lib:framelimit(deltatime, fps)
 	local rendertime = 0
     rendertime += deltatime
