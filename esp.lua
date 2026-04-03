@@ -763,7 +763,7 @@ local UI = {
 
 
 esp.connection = RunService.PreRender:Connect(function(deltatime)
-    --services:framelimit(deltatime, 60)
+    services:framelimit(deltatime, 60)
     cache.character = self.Character
     
 
