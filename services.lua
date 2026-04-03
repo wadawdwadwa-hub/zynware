@@ -12,7 +12,7 @@ function lib:CloneFunction(self)
 end
 
 
-function CloneReference(self)
+function lib:CloneReference(self)
     return cloneref(self)
 end
 
