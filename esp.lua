@@ -1,7 +1,7 @@
-local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
 local lib = {}
-lib.visualcache = {}
+local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
 lib.__index = lib
+lib.visualcache = {}
 
 
 
