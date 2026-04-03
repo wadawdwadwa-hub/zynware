@@ -10,14 +10,11 @@ local Players, ReplicatedStorage, RunService, TweenService, UserInputService, Li
 local Client, ClientChar = Players.LocalPlayer, Players.LocalPlayer.Character
 local mousePos = Client:GetMouse()
 
-
 local tan, floor, rad, clamp, round = services:CloneFunction(math.tan), services:CloneFunction(math.floor), services:CloneFunction(math.rad), services:CloneFunction(math.clamp), services:CloneFunction(math.round)
 local New, hideui = services:CloneFunction(Instance.new), gethui()
 
-
 local FromRGB, hex, NewGradient, GradientSequence, GradientNumberKeypoint, GradientNumberSequence = services:CloneFunction(Color3.fromRGB), services:CloneFunction(Color3.fromHex), services:CloneFunction(ColorSequence.new), services:CloneFunction(ColorSequenceKeypoint.new), services:CloneFunction(NumberSequenceKeypoint.new), services:CloneFunction(NumberSequence.new)
 local dim2, Vector2, Vector3, CreateVector = services:CloneFunction(UDim2.new), services:CloneFunction(Vector2.new), services:CloneFunction(Vector3.new), services:CloneFunction(vector.create)
-
 
 local CameraViewport = Camera.ViewportSize
 local CameraOrigin = Vector2(CameraViewport.X / 2, CameraViewport.Y / 2)
@@ -25,7 +22,6 @@ local CameraOrigin = Vector2(CameraViewport.X / 2, CameraViewport.Y / 2)
 
 
 writefile("ProggyClean1.ttf", game:HttpGet("https://github.com/bluescan/proggyfonts/raw/refs/heads/master/ProggyOriginal/ProggyClean.ttf"))
-
 local ProggyClean = {
 	name = "ProggyClean",
 	faces = {
