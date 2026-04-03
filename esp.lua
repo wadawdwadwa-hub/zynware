@@ -10,11 +10,14 @@ local Players, ReplicatedStorage, RunService, TweenService, UserInputService, Li
 local Client, ClientChar = Players.LocalPlayer, Players.LocalPlayer.Character
 local mousePos = Client:GetMouse()
 
+
 local tan, floor, rad, clamp, round = services:CloneFunction(math.tan), services:CloneFunction(math.floor), services:CloneFunction(math.rad), services:CloneFunction(math.clamp), services:CloneFunction(math.round)
 local New, hideui = services:CloneFunction(Instance.new), gethui()
 
+
 local FromRGB, hex, NewGradient, GradientSequence, GradientNumberKeypoint, GradientNumberSequence = services:CloneFunction(Color3.fromRGB), services:CloneFunction(Color3.fromHex), services:CloneFunction(ColorSequence.new), services:CloneFunction(ColorSequenceKeypoint.new), services:CloneFunction(NumberSequenceKeypoint.new), services:CloneFunction(NumberSequence.new)
 local dim2, Vector2, Vector3, CreateVector = services:CloneFunction(UDim2.new), services:CloneFunction(Vector2.new), services:CloneFunction(Vector3.new), services:CloneFunction(vector.create)
+
 
 local CameraViewport = Camera.ViewportSize
 local CameraOrigin = Vector2(CameraViewport.X / 2, CameraViewport.Y / 2)
@@ -22,6 +25,7 @@ local CameraOrigin = Vector2(CameraViewport.X / 2, CameraViewport.Y / 2)
 
 
 writefile("ProggyClean1.ttf", game:HttpGet("https://github.com/bluescan/proggyfonts/raw/refs/heads/master/ProggyOriginal/ProggyClean.ttf"))
+
 local ProggyClean = {
 	name = "ProggyClean",
 	faces = {
@@ -185,14 +189,6 @@ function lib:ESPObject(self, lib2)
     end
 
 
-    function lib:returnimage(self)
-       local encoded = game:HttpGet(self.Link)
-       writefile(self.Name .. ".png", base64decode(encoded))
-       local asset_id = getcustomasset(self.Name .. ".png")
-
-       return asset_id
-    end
-
 
    do
     lib:DrawText({
@@ -251,22 +247,6 @@ function lib:ESPObject(self, lib2)
         Zindex = 0,
         Rotation = 0,
         AnchorPoint = Vector2(0, 0, 0)
-    })
-
-
-
-    lib:DrawImage({
-        Name = "Image",
-        Parent = esp.holder,
-        Color = FromRGB(0, 0, 0),
-        BackgroundTransparency = 1,
-        BorderSizePixel = 0,
-        Position = dim2(0.16, 0, 0.12, 0),
-        Size = dim2(0.68, 0, 0.88, 0),
-        Zindex = 0,
-        Rotation = 0,
-        AnchorPoint = Vector2(0, 0, 0),
-        Image = "rbxassetid://79294936123021"
     })
 
 
@@ -740,7 +720,6 @@ local UI = {
 
     Box = esp.holder.Box,
     Fill = esp.holder.Fill,
-    Image = esp.holder.Image,
 
     Top = esp.holder.Box.borders.top,
     Bottom = esp.holder.Box.borders.bottom,
@@ -954,15 +933,6 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.Right.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
         UI.RightC.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
         
-
-
-        UI.Image.Visible = lib2.flags["Image"] and lib2.flags["Boxes"] and os
-        UI.Image.Image = cheat.image
-        UI.Image.Size = UI.Box.Size
-        UI.Image.Position = UI.Box.Position
-        UI.Image.ZIndex = -50
-
-
 
         UI.Fill.Visible = lib2.flags["BoxFillToggle"] and lib2.flags["Boxes"] and os
         UI.Fill.UIGradient.Color = returngradientcolor("Fill_Color_One", "Fill_Color_Two")
