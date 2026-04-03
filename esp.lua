@@ -155,8 +155,8 @@ end
 function lib:disconnect(self)
     task.wait()
     hideui:FindFirstChild(tostring(self)):Destroy()
-    lib.visualcache[self].connection:Disconnect()
-    lib.visualcache[self] = nil
+    lib[self].connection:Disconnect()
+    lib[self] = nil
 end
 
 
@@ -165,6 +165,7 @@ function lib:ESPObject(self, lib2)
     local esp = lib:DrawGui(self)
     local cache = esp.cache
     setmetatable(lib.visualcache, esp)
+    table.foreach(lib, print)
  
 
 
