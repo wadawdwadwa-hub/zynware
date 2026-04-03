@@ -154,6 +154,7 @@ end
 
 function lib:disconnect(self)
     task.wait()
+    hideui:FindFirstChild(tostring(self)):Destroy()
     lib.visualcache[self].connection:Disconnect()
     lib.visualcache[self] = nil
 end
