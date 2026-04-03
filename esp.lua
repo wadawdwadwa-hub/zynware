@@ -763,12 +763,13 @@ local UI = {
 
 
 esp.connection = RunService.PreRender:Connect(function(deltatime)
-    services:framelimit(deltatime, 60)
+    --services:framelimit(deltatime, 60)
     cache.character = self.Character
     
 
   if cache.character and services:findfirstchild(cache.character, "HumanoidRootPart") and services:findfirstchild(cache.character, "Humanoid") then
     local getName = Players:GetPlayerFromCharacter(cache.character)
+    --Players:GetPlayerFromCharacter(cache.character)
     cache.root, cache.humanoid, cache.weapon, cache.iscornerbox = cache.character["HumanoidRootPart"], cache.character["Humanoid"], "weapon", lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os
     --cache.root, cache.humanoid, cache.weapon, cache.iscornerbox = cache.character["HumanoidRootPart"], cache.character["Humanoid"], services:findfirstchildofclass(cache.character["Equipped"], "Model"), lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Corner" and os
 
