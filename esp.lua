@@ -116,14 +116,12 @@ function lib:DrawText(properties)
     obj.BorderSizePixel = 0
 
     obj.TextStrokeTransparency = 1
-	obj.FontFace = lib.ProggyClean
+	obj.FontFace = esplib.SmallestPixel7
 
     obj.AnchorPoint = properties.AnchorPoint
     stroke.Parent = obj
 
-    lib:DrawUIStroke({
-        Parent = obj
-    })
+    lib:DrawUIStroke({Parent = obj})
 end
 
 
