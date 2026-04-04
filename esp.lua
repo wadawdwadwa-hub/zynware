@@ -55,6 +55,7 @@ function lib:DrawGui(self)
 
     lib[self].colors.Parent = lib[self].holder
     lib[self].borders.Parent = lib[self].holder
+    warn(lib[self].holder)
 
 
     return lib[self]
