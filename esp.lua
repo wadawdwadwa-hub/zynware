@@ -39,26 +39,26 @@ lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Re
 
 
 function lib:DrawGui(self)
-	local obj = {holder = New("BillboardGui"), chams = New("Highlight"), cache = {}, connection, colors = New("Folder"), borders = New("Folder"), chamsholder = New("Folder")}
-	obj.holder.Name = self.Name
-    obj.holder.Size = dim2(7, 0, 7.5, 0)
-	obj.holder.Parent = hideui
-	obj.holder.AlwaysOnTop = true
-    obj.holder.StudsOffset = Vector3(0, .45)
+	lib[self] = {holder = New("BillboardGui"), chams = New("Highlight"), cache = {}, connection, colors = New("Folder"), borders = New("Folder"), chamsholder = New("Folder")}
+	lib[self].holder.Name = self.Name
+    lib[self].holder.Size = dim2(7, 0, 7.5, 0)
+	lib[self].holder.Parent = hideui
+	lib[self].holder.AlwaysOnTop = true
+    lib[self].holder.StudsOffset = Vector3(0, .45)
     
 
-    obj.chamsholder.Parent = obj.holder
+    lib[self].chamsholder.Parent = lib[self].holder
 
 
-	obj.chams.Name = self.Name
-    obj.chams.Parent = obj.holder
+	lib[self].chams.Name = self.Name
+    lib[self].chams.Parent = obj.holder
 
 
-    obj.colors.Parent = obj.holder
-    obj.borders.Parent = obj.holder
+    lib[self].colors.Parent = obj.holder
+    lib[self].borders.Parent = obj.holder
 
 
-    return obj
+    return lib[self]
 end
 
 
@@ -156,9 +156,8 @@ end
 function lib:ESPObject(self, lib2)
     local esp = lib:DrawGui(self)
     local cache = esp.cache
-    setmetatable(lib, esp)
-
- 
+  
+    
 
     function lib:returnflagcolor(color)
       return lib2.flags[color].Color
