@@ -51,11 +51,11 @@ function lib:DrawGui(self)
 
 
 	lib[self].chams.Name = self.Name
-    lib[self].chams.Parent = obj.holder
+    lib[self].chams.Parent = lib[self].holder
 
 
-    lib[self].colors.Parent = obj.holder
-    lib[self].borders.Parent = obj.holder
+    lib[self].colors.Parent = lib[self].holder
+    lib[self].borders.Parent = lib[self].holder
 
 
     return lib[self]
@@ -157,7 +157,7 @@ function lib:ESPObject(self, lib2)
     local esp = lib:DrawGui(self)
     local cache = esp.cache
   
-    
+
 
     function lib:returnflagcolor(color)
       return lib2.flags[color].Color
