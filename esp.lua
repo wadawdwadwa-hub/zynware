@@ -55,7 +55,7 @@ function lib:DrawGui(self)
 
     lib[self].colors.Parent = lib[self].holder
     lib[self].borders.Parent = lib[self].holder
-    warn(lib[self].holder)
+    warn("niggers" .. lib[self].holder)
 
 
     return lib[self]
@@ -99,8 +99,6 @@ function lib:DrawText(properties)
 
     obj.AnchorPoint = properties.AnchorPoint
     stroke.Parent = obj
-
-    lib:DrawUIStroke({Parent = obj})
 end
 
 
@@ -784,7 +782,6 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         
 
 
-    do
       UI.GUI.Enabled = lib2.flags["Enabled"] and os
       UI.chams.Enabled = lib2.flags["ChamsToggle"] and os
       UI.GUI.Adornee = cache.root
@@ -798,11 +795,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
       UI.chams.OutlineTransparency = returnflagtransparency("ChamColor")
       UI.chams.FillColor = returnflagcolor("ChamColor2")
       UI.chams.FillTransparency = returnflagtransparency("ChamColor2") 
-    end
 
 
 
-   do
     UI.CornerTopSideL.BackgroundColor3 = returnflagcolor("Box_Color")
     UI.CornerTopSideLC.BackgroundColor3 = returnflagcolor("Box_Color")
     UI.CornerTopSideL2.BackgroundColor3 = returnflagcolor("Box_Color")
@@ -882,11 +877,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
 
     UI.CornerBottomSideR2.Size = dim2(-.3, 0 * distancemath / .75, 0, -1)
     UI.CornerBottomSideRC2.Size = UI.CornerBottomSideR2.Size
-    end
 
 
 
-    do
         UI.Top.Size = dim2(1, 0 * distancemath / .75, 0, 1)
         UI.TopC.Size = UI.Top.Size
         UI.TopC.BackgroundColor3 = returnflagcolor("Box_Color")
@@ -919,11 +912,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.Fill.UIGradient.Color = returngradientcolor("Fill_Color_One", "Fill_Color_Two")
         UI.Fill.UIGradient.Transparency = returnGradientTransparency("Fill_Color_One", "Fill_Color_Two")
         UI.Fill.UIGradient.Rotation += .2
-    end
 
 
 
-    do
         UI.PlayerName.Text = getName.Name .. " (@" .. getName.DisplayName .. ")"
         UI.PlayerName.Size = dim2(0.75, 0 * distancemath - .1, 0, .8 / distancemath / 10 - 20)
         UI.PlayerName.Position = dim2(0.13, 0, .12, 0)
@@ -931,11 +922,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PlayerName.TextColor3 = returnflagcolor("Name_Color")
         UI.PlayerName.TextSize = lib2.flags["TextSize"]
         UI.PlayerName.FontFace = lib.ProggyClean
-    end
 
 
 
-    do
         UI.DistanceText.Text = round(UI.GUI.CurrentDistance) .. "st"
         UI.DistanceText.Visible = lib2.flags["Distance"] and os
         UI.DistanceText.Size = dim2(0.75, 0 * distancemath - .1, 0, .81 / distancemath / 8 + 20)
@@ -943,11 +932,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.DistanceText.TextColor3 = returnflagcolor("Distance_Color")
         UI.DistanceText.TextSize = lib2.flags["TextSize"]
         UI.DistanceText.FontFace = lib.ProggyClean
-    end
 
 
 
-    do
         UI.WeaponText.Text = cache.getweapon()
         UI.WeaponText.Visible = lib2.flags["Weapon"] and os
         UI.WeaponText.Size = dim2(0.75, 0 * distancemath - .1, 0, .8 / distancemath / 30 + 50)
@@ -955,11 +942,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.WeaponText.TextColor3 = returnflagcolor("Weapon_Color")
         UI.WeaponText.TextSize = lib2.flags["TextSize"]
         UI.WeaponText.FontFace = lib.ProggyClean
-    end
 
 
 
-    do 
         UI.FlagText.Text = round(cache.humanoid.Health) .. "HP"
         UI.FlagText.Visible = lib2.flags["Flag"] and os
         UI.FlagText.Size = dim2(0.01, 0 * distancemath - 45, 0, .042 / distancemath / 1 + 2)
@@ -967,11 +952,9 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.FlagText.TextColor3 = returnflagcolor("FlagColor")
         UI.FlagText.TextSize = lib2.flags["TextSize"]
         UI.FlagText.FontFace = lib.ProggyClean
-    end
 
 
 
-    do 
         UI.PriorityFlag.Text = lib2.get_priority(self)
         UI.PriorityFlag.Visible = lib2.flags["PriorityFlag"] and os
         UI.PriorityFlag.Size = dim2(0.095, 0 * distancemath + 65, 0, .042 / distancemath / 1 + 2)
@@ -979,11 +962,8 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PriorityFlag.TextColor3 = returnflagcolor(lib2.get_priority(self))
         UI.PriorityFlag.TextSize = lib2.flags["TextSize"]
         UI.PriorityFlag.FontFace = lib.ProggyClean
-    end
 
 
-
-    do
         UI.HealthBar.Visible = lib2.flags["Healthbar"] and os
         UI.HealthBar.bar.UIGradient.Color = returngradientcolor("Health_High", "Health_Low")
 
@@ -997,7 +977,6 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
             UI.HealthBar.Position = dim2(.835, 0 / distancemath * pos.Magnitude + clamp(2.2, 2, 2.5) * (clamp(.02, .02, .07) + clamp(.8, .8, .95)) / distancemath + math.min(.001) - math.max(.009) * (clamp(.06, .06, .1)) + math.sign(.6), .12, 0)
             UI.HealthBar.bar.Size = dim2(1, 0, cache.humanoid.Health / cache.humanoid.MaxHealth, 0)
         end
-    end
 
 
    else
