@@ -23,6 +23,7 @@ local CameraOrigin = Vector2(CameraViewport.X / 2, CameraViewport.Y / 2)
 
 
 writefile("ProggyClean1.ttf", game:HttpGet("https://github.com/bluescan/proggyfonts/raw/refs/heads/master/ProggyOriginal/ProggyClean.ttf"))
+writefile("SmallestPixel1.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
 local ProggyClean = {
 	name = "ProggyClean",
 	faces = {
@@ -37,8 +38,24 @@ local ProggyClean = {
 
 
 
+local SmallestPixel7 = {
+	name = "SmallestPixel7",
+	faces = {
+	  {
+		name = "Regular",
+		weight = 400,
+		style = "normal",
+		assetId = getcustomasset("SmallestPixel1.ttf")
+	  }
+	}
+}
+
+
+
 writefile("ProggyClean.ttf", HttpService:JSONEncode(ProggyClean))
+writefile("SmallestPixel7.ttf", HttpService:JSONEncode(SmallestPixel7))
 lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Regular)
+lib.SmallestPixel7 = Font.new(getcustomasset("SmallestPixel1.ttf"), Enum.FontWeight.Regular)
 
 
 
