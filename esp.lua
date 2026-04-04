@@ -40,7 +40,7 @@ lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Re
 function lib:DrawGui(self)
 	lib[self] = {holder = New("BillboardGui"), chams = New("Highlight"), cache = {}, connection, colors = New("Folder"), borders = New("Folder"), chamsholder = New("Folder")}
 	lib[self].holder.Name = self.Name
-    lib[self].holder.Size = dim2(7, 0, 7.5, 0)
+    lib[self].holder.Size = dim2(7, 0, 8, 0)
 	lib[self].holder.Parent = hideui
 	lib[self].holder.AlwaysOnTop = true
     lib[self].holder.StudsOffset = Vector3(0, .45)
