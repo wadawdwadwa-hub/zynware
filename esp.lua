@@ -808,7 +808,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
 
     do
       UI.GUI.Enabled = lib2.flags["Enabled"] and os
-      UI.chams.Enabled = lib2.flags["ChamsToggle"] and os  
+      UI.chams.Enabled = lib2.flags["ChamsToggle"] and os
       UI.GUI.Adornee = cache.root
 	  UI.GUI.StudsOffset = Vector3(0, -.03, 0)
       UI.GUI.Size = dim2(6, 0 * distancemath + 10, 7, 0 * distancemath + 5 / 1 + 2)
@@ -874,50 +874,41 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
 
 
 
-    -- left top corner
-        UI.CornerTopSideL.Size = dim2(.3, 0 * distancemath / .75, 0, 1)
-        UI.CornerTopSideLC.Size = UI.CornerTopSideL.Size
+    UI.CornerTopSideL.Size = dim2(.3, 0 * distancemath / .75, 0, 1)
+    UI.CornerTopSideLC.Size = UI.CornerTopSideL.Size
 
 
-        UI.CornerTopSideL2.Size = dim2(0, 1 * distancemath - -.75, .3, 0)
-        UI.CornerTopSideL2C.Size = UI.CornerTopSideL.Size
+    UI.CornerTopSideL2.Size = dim2(0, 1 * distancemath - -.75, .3, 0)
+    UI.CornerTopSideL2C.Size = UI.CornerTopSideL.Size
 
 
-     -- right top corner
-
-        UI.CornerTopSideR.Size = dim2(-.3, 0 * distancemath / .75, 0, 1)
-        UI.CornerTopSideRC.Size = UI.CornerTopSideR.Size
+    UI.CornerTopSideR.Size = dim2(-.3, 0 * distancemath / .75, 0, 1)
+    UI.CornerTopSideRC.Size = UI.CornerTopSideR.Size
        
 
-        UI.CornerTopSideR2.Size = dim2(0, 1 * distancemath - -.75, .3, 0)
-        UI.CornerTopSideRC2.Size = UI.CornerTopSideR.Size
-        
-
-     -- bottom left corner
+    UI.CornerTopSideR2.Size = dim2(0, 1 * distancemath - -.75, .3, 0)
+    UI.CornerTopSideRC2.Size = UI.CornerTopSideR.Size
 
 
-        UI.CornerBottomSideL.Size = dim2(0, 1 * distancemath - -.75, -.3, 0)
-        UI.CornerBottomSideLC.Size = UI.CornerBottomSideL.Size
+    UI.CornerBottomSideL.Size = dim2(0, 1 * distancemath - -.75, -.3, 0)
+    UI.CornerBottomSideLC.Size = UI.CornerBottomSideL.Size
 
 
-        UI.CornerBottomSideL2.Size = dim2(.3, 0 * distancemath - -.75, 0, -1)
-        UI.CornerBottomSideLC.Size = UI.CornerBottomSideL2.Size
+    UI.CornerBottomSideL2.Size = dim2(.3, 0 * distancemath - -.75, 0, -1)
+    UI.CornerBottomSideLC.Size = UI.CornerBottomSideL2.Size
 
 
-     -- bottom right corner
+    UI.CornerBottomSideR.Size = dim2(0, 1 * distancemath - -.75, -.3, 0)
+    UI.CornerBottomSideRC.Size = UI.CornerBottomSideR.Size
 
 
-        UI.CornerBottomSideR.Size = dim2(0, 1 * distancemath - -.75, -.3, 0)
-        UI.CornerBottomSideRC.Size = UI.CornerBottomSideR.Size
+    UI.CornerBottomSideR2.Size = dim2(-.3, 0 * distancemath / .75, 0, -1)
+    UI.CornerBottomSideRC2.Size = UI.CornerBottomSideR2.Size
+    end
 
 
-        UI.CornerBottomSideR2.Size = dim2(-.3, 0 * distancemath / .75, 0, -1)
-        UI.CornerBottomSideRC2.Size = UI.CornerBottomSideR2.Size
 
-
-     -- full box
-        
-
+    do
         UI.Top.Size = dim2(1, 0 * distancemath / .75, 0, 1)
         UI.TopC.Size = UI.Top.Size
         UI.TopC.BackgroundColor3 = returnflagcolor("Box_Color")
@@ -963,6 +954,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PlayerName.TextSize = lib2.flags["TextSize"]
         UI.PlayerName.FontFace = lib.ProggyClean
     end
+
 
 
     do
