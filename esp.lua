@@ -43,7 +43,7 @@ local SmallestPixel7 = {
 	faces = {
 	  {
 		name = "Regular",
-		weight = 400,
+		weight = 700,
 		style = "normal",
 		assetId = getcustomasset("SmallestPixel1.ttf")
 	  }
@@ -55,7 +55,7 @@ local SmallestPixel7 = {
 writefile("ProggyClean.ttf", HttpService:JSONEncode(ProggyClean))
 writefile("SmallestPixel7.ttf", HttpService:JSONEncode(SmallestPixel7))
 lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Regular)
-lib.SmallestPixel7 = Font.new(getcustomasset("SmallestPixel1.ttf"), Enum.FontWeight.Regular)
+lib.SmallestPixel7 = Font.new(getcustomasset("SmallestPixel7.ttf"), Enum.FontWeight.Regular)
 
 
 
@@ -167,9 +167,9 @@ end
 
 
 function lib:disconnect(self)
-    lib.visualcache[self].holder:Destroy()
-    lib.visualcache[self].connection:Disconnect()
-    lib.visualcache[self] = nil
+    lib[self].holder:Destroy()
+    lib[self].connection:Disconnect()
+    lib[self] = nil
 end
 
 
@@ -177,7 +177,7 @@ end
 function lib:ESPObject(self, lib2)
     local esp = lib:DrawGui(self)
     local cache = esp.cache
-    setmetatable(lib.visualcache, esp)
+    setmetatable(lib, esp)
 
  
 
