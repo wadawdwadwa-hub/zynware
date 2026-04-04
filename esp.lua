@@ -38,7 +38,7 @@ local SmallestPixel7 = {
 	faces = {
 	  {
 		name = "Regular",
-		weight = 700,
+		weight = 400,
 		style = "normal",
 		assetId = getcustomasset("SmallestPixel71.ttf")
 	  }
@@ -51,7 +51,7 @@ writefile("ProggyClean.ttf", HttpService:JSONEncode(ProggyClean))
 writefile("SmallestPixel7.ttf", HttpService:JSONEncode(SmallestPixel7))
 lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Regular)
 lib.SmallestPixel7 = Font.new(getcustomasset("SmallestPixel7.ttf"), Enum.FontWeight.Regular)
-
+print(lib.SmallestPixel7)
 
 
 function lib:DrawGui(self)
