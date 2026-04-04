@@ -1,7 +1,6 @@
 local lib = {}
 local services = loadstring(game:HttpGet("https://raw.githubusercontent.com/wadawdwadwa-hub/GeekClient/refs/heads/main/services.lua"))()
 lib.__index = lib
-lib.visualcache = {}
 
 
 local WS, ws = services:GetService("Workspace"), services:CloneReference(workspace)
