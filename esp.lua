@@ -116,7 +116,7 @@ function lib:DrawText(properties)
     obj.BorderSizePixel = 0
 
     obj.TextStrokeTransparency = 1
-	obj.FontFace = lib.SmallestPixel7
+	obj.FontFace = lib.ProggyClean
 
     obj.AnchorPoint = properties.AnchorPoint
     stroke.Parent = obj
