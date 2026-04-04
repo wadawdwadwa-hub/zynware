@@ -947,7 +947,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PlayerName.Visible = lib2.flags["Names"] and os
         UI.PlayerName.TextColor3 = returnflagcolor("Name_Color")
         UI.PlayerName.TextSize = lib2.flags["TextSize"]
-        UI.PlayerName.FontFace = lib.SmallestPixel7
+        UI.PlayerName.FontFace = lib.ProggyClean
 
 
 
@@ -957,7 +957,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.DistanceText.Position = dim2(0.13, 0, .999, 0)
         UI.DistanceText.TextColor3 = returnflagcolor("Distance_Color")
         UI.DistanceText.TextSize = lib2.flags["TextSize"]
-        UI.DistanceText.FontFace = lib.SmallestPixel7
+        UI.DistanceText.FontFace = lib.ProggyClean
 
 
 
