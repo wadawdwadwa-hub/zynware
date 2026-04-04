@@ -55,7 +55,7 @@ function lib:DrawGui(self)
 
     lib[self].colors.Parent = lib[self].holder
     lib[self].borders.Parent = lib[self].holder
-    warn("niggers", lib[self].holder)
+    warn("niggers")
 
 
     return lib[self]
@@ -145,6 +145,7 @@ end
 
 function lib:disconnect(self)
     lib[self].holder:Destroy()
+    task.wait()
     lib[self].connection:Disconnect()
     lib[self] = nil
 end
