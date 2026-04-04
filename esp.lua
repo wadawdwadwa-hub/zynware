@@ -18,6 +18,7 @@ local dim2, Vector2, Vector3, CreateVector = services:CloneFunction(UDim2.new), 
 
 
 writefile("ProggyClean1.ttf", game:HttpGet("https://github.com/bluescan/proggyfonts/raw/refs/heads/master/ProggyOriginal/ProggyClean.ttf"))
+writefile("SmallestPixel71.ttf", game:HttpGet("https://github.com/i77lhm/storage/blob/refs/heads/main/fonts/smallest_pixel-7.ttf"))
 local ProggyClean = {
 	name = "ProggyClean",
 	faces = {
@@ -32,8 +33,24 @@ local ProggyClean = {
 
 
 
+local SmallestPixel7 = {
+	name = "SmallestPixel7",
+	faces = {
+	  {
+		name = "Regular",
+		weight = 700,
+		style = "normal",
+		assetId = getcustomasset("SmallestPixel71.ttf")
+	  }
+	}
+}
+
+
+
 writefile("ProggyClean.ttf", HttpService:JSONEncode(ProggyClean))
+writefile("SmallestPixel7.ttf", HttpService:JSONEncode(SmallestPixel7))
 lib.ProggyClean = Font.new(getcustomasset("ProggyClean.ttf"), Enum.FontWeight.Regular)
+lib.SmallestPixel7 = Font.new(getcustomasset("SmallestPixel7.ttf"), Enum.FontWeight.Regular)
 
 
 
@@ -782,23 +799,25 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
     end
         
 
-
-      UI.GUI.Enabled = lib2.flags["Enabled"] and os
-      UI.chams.Enabled = lib2.flags["ChamsToggle"] and os
-      UI.GUI.Adornee = cache.root
-	  UI.GUI.StudsOffset = Vector3(0, -.03, 0)
-      UI.GUI.Size = dim2(6, 0 * distancemath + 10, 7, 0 * distancemath + 5 / 1 + 2)
-
-
-
-      UI.chams.Adornee = cache.character
-      UI.chams.OutlineColor = returnflagcolor("ChamColor")
-      UI.chams.OutlineTransparency = returnflagtransparency("ChamColor")
-      UI.chams.FillColor = returnflagcolor("ChamColor2")
-      UI.chams.FillTransparency = returnflagtransparency("ChamColor2") 
+   do
+    UI.GUI.Enabled = lib2.flags["Enabled"] and os
+    UI.GUI.Adornee = cache.root
+	UI.GUI.StudsOffset = Vector3(0, -.03, 0)
+    UI.GUI.Size = dim2(6, 0 * distancemath + 10, 7, 0 * distancemath + 5 / 1 + 2)
+   end
 
 
+   do
+    UI.chams.Enabled = lib2.flags["ChamsToggle"] and os
+    UI.chams.Adornee = cache.character
+    UI.chams.OutlineColor = returnflagcolor("ChamColor")
+    UI.chams.OutlineTransparency = returnflagtransparency("ChamColor")
+    UI.chams.FillColor = returnflagcolor("ChamColor2")
+    UI.chams.FillTransparency = returnflagtransparency("ChamColor2") 
+   end
 
+
+   do
     UI.CornerTopSideL.BackgroundColor3 = returnflagcolor("Box_Color")
     UI.CornerTopSideLC.BackgroundColor3 = returnflagcolor("Box_Color")
     UI.CornerTopSideL2.BackgroundColor3 = returnflagcolor("Box_Color")
@@ -878,51 +897,57 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
 
     UI.CornerBottomSideR2.Size = dim2(-.3, 0 * distancemath / .75, 0, -1)
     UI.CornerBottomSideRC2.Size = UI.CornerBottomSideR2.Size
+   end
 
 
-
-        UI.Top.Size = dim2(1, 0 * distancemath / .75, 0, 1)
-        UI.TopC.Size = UI.Top.Size
-        UI.TopC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Top.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
-        UI.TopC.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
+   do
+    UI.Top.Size = dim2(1, 0 * distancemath / .75, 0, 1)
+    UI.TopC.Size = UI.Top.Size
+    UI.TopC.BackgroundColor3 = returnflagcolor("Box_Color")
+    UI.Top.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
+    UI.TopC.Visible = lib2.flags["Boxes"] and lib2.flags["Box_Type"] == "Full" and os
         
         
-        UI.Bottom.Size = dim2(1, 0 * distancemath / -.75, 0, -1)
-        UI.BottomC.Size = UI.Bottom.Size
-        UI.BottomC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Bottom.Visible = cache.isfullbox
-        UI.BottomC.Visible = cache.isfullbox
+    UI.Bottom.Size = dim2(1, 0 * distancemath / -.75, 0, -1)
+    UI.BottomC.Size = UI.Bottom.Size
+    UI.BottomC.BackgroundColor3 = returnflagcolor("Box_Color")
+    UI.Bottom.Visible = cache.isfullbox
+    UI.BottomC.Visible = cache.isfullbox
 
 
-        UI.Left.Size = dim2(0, 1 * distancemath - -.75, 1, 0)
-        UI.LeftC.Size = UI.Left.Size
-        UI.LeftC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Left.Visible = cache.isfullbox
-        UI.LeftC.Visible = cache.isfullbox
+    UI.Left.Size = dim2(0, 1 * distancemath - -.75, 1, 0)
+    UI.LeftC.Size = UI.Left.Size
+    UI.LeftC.BackgroundColor3 = returnflagcolor("Box_Color")
+    UI.Left.Visible = cache.isfullbox
+    UI.LeftC.Visible = cache.isfullbox
 
         
-        UI.Right.Size = dim2(0, 1 * distancemath - -.75, 1, 0)
-        UI.RightC.Size = UI.Right.Size
-        UI.RightC.BackgroundColor3 = returnflagcolor("Box_Color")
-        UI.Right.Visible = cache.isfullbox
-        UI.RightC.Visible = cache.isfullbox
-        
-
-        UI.Fill.Visible = cache.isgradientenabled
-        UI.Fill.UIGradient.Color = returngradientcolor("Fill_Color_One", "Fill_Color_Two")
-        UI.Fill.UIGradient.Transparency = returnGradientTransparency("Fill_Color_One", "Fill_Color_Two")
-        UI.Fill.UIGradient.Rotation += .2
+    UI.Right.Size = dim2(0, 1 * distancemath - -.75, 1, 0)
+    UI.RightC.Size = UI.Right.Size
+    UI.RightC.BackgroundColor3 = returnflagcolor("Box_Color")
+    UI.Right.Visible = cache.isfullbox
+    UI.RightC.Visible = cache.isfullbox
+   end
 
 
 
-        UI.PlayerName.Text = getName.Name .. " (@" .. getName.DisplayName .. ")"
+   do
+    UI.Fill.Visible = cache.isgradientenabled
+    UI.Fill.UIGradient.Color = returngradientcolor("Fill_Color_One", "Fill_Color_Two")
+    UI.Fill.UIGradient.Transparency = returnGradientTransparency("Fill_Color_One", "Fill_Color_Two")
+    UI.Fill.UIGradient.Rotation += .2
+   end
+
+
+
+   do
+     UI.PlayerName.Text = getName.Name .. " (@" .. getName.DisplayName .. ")"
         UI.PlayerName.Size = dim2(0.75, 0 * distancemath - .1, 0, .8 / distancemath / 10 - 20)
         UI.PlayerName.Position = dim2(0.13, 0, .12, 0)
         UI.PlayerName.Visible = lib2.flags["Names"] and os
         UI.PlayerName.TextColor3 = returnflagcolor("Name_Color")
         UI.PlayerName.TextSize = lib2.flags["TextSize"]
-        UI.PlayerName.FontFace = lib.ProggyClean
+        UI.PlayerName.FontFace = lib.SmallestPixel7
 
 
 
@@ -932,7 +957,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.DistanceText.Position = dim2(0.13, 0, .999, 0)
         UI.DistanceText.TextColor3 = returnflagcolor("Distance_Color")
         UI.DistanceText.TextSize = lib2.flags["TextSize"]
-        UI.DistanceText.FontFace = lib.ProggyClean
+        UI.DistanceText.FontFace = lib.SmallestPixel7
 
 
 
@@ -948,7 +973,7 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
 
         UI.FlagText.Text = round(cache.humanoid.Health) .. "HP"
         UI.FlagText.Visible = lib2.flags["Flag"] and os
-        UI.FlagText.Size = dim2(0.01, 0 * distancemath - 45, 0, .042 / distancemath / 1 + 2)
+        UI.FlagText.Size = dim2(0.08, 0 * distancemath - 45, 0, .042 / distancemath / 1 + 2)
         UI.FlagText.Position = dim2(.0999, 0, .15, 0)
         UI.FlagText.TextColor3 = returnflagcolor("FlagColor")
         UI.FlagText.TextSize = lib2.flags["TextSize"]
@@ -963,22 +988,27 @@ esp.connection = RunService.PreRender:Connect(function(deltatime)
         UI.PriorityFlag.TextColor3 = returnflagcolor(lib2.get_priority(self))
         UI.PriorityFlag.TextSize = lib2.flags["TextSize"]
         UI.PriorityFlag.FontFace = lib.ProggyClean
+   end
 
 
-        UI.HealthBar.Visible = lib2.flags["Healthbar"] and os
-        UI.HealthBar.bar.UIGradient.Color = returngradientcolor("Health_High", "Health_Low")
+
+   do
+    UI.HealthBar.Visible = lib2.flags["Healthbar"] and os
+    UI.HealthBar.bar.UIGradient.Color = returngradientcolor("Health_High", "Health_Low")
 
 
-        if lib2.flags["Bar_Position"] == "Left" then
-            UI.HealthBar.Size = dim2(0, 1 + distancemath / pos.Magnitude * (math.min(.01) / math.max(.05)) / distancemath + .001, .88, 0)
-            UI.HealthBar.Position = dim2(.155, 0 / distancemath * pos.Magnitude - clamp(2.2, 2, 2.5) * (clamp(.02, .02, .07) + clamp(.8, .8, .95)) / distancemath + math.min(.001) - math.max(.009) * (clamp(.06, .06, .1)) - math.sign(.6), .12, 0)
-            UI.HealthBar.bar.Size = dim2(1, 0, cache.humanoid.Health / cache.humanoid.MaxHealth, 0)
-        elseif lib2.flags["Bar_Position"] == "Right" then
-            UI.HealthBar.Size = dim2(0, 1 + distancemath / pos.Magnitude * (math.min(.01) / math.max(.05)) / distancemath + .001, .88, 0)
-            UI.HealthBar.Position = dim2(.835, 0 / distancemath * pos.Magnitude + clamp(2.2, 2, 2.5) * (clamp(.02, .02, .07) + clamp(.8, .8, .95)) / distancemath + math.min(.001) - math.max(.009) * (clamp(.06, .06, .1)) + math.sign(.6), .12, 0)
-            UI.HealthBar.bar.Size = dim2(1, 0, cache.humanoid.Health / cache.humanoid.MaxHealth, 0)
-        end
+    if lib2.flags["Bar_Position"] == "Left" then
+        UI.HealthBar.Size = dim2(0, 1 + distancemath / pos.Magnitude * (math.min(.01) / math.max(.05)) / distancemath + .001, .88, 0)
+        UI.HealthBar.Position = dim2(.155, 0 / distancemath * pos.Magnitude - clamp(2.2, 2, 2.5) * (clamp(.02, .02, .07) + clamp(.8, .8, .95)) / distancemath + math.min(.001) - math.max(.009) * (clamp(.06, .06, .1)) - math.sign(.6), .12, 0)
+        UI.HealthBar.bar.Size = dim2(1, 0, cache.humanoid.Health / cache.humanoid.MaxHealth, 0)
+    elseif lib2.flags["Bar_Position"] == "Right" then
+        UI.HealthBar.Size = dim2(0, 1 + distancemath / pos.Magnitude * (math.min(.01) / math.max(.05)) / distancemath + .001, .88, 0)
+        UI.HealthBar.Position = dim2(.835, 0 / distancemath * pos.Magnitude + clamp(2.2, 2, 2.5) * (clamp(.02, .02, .07) + clamp(.8, .8, .95)) / distancemath + math.min(.001) - math.max(.009) * (clamp(.06, .06, .1)) + math.sign(.6), .12, 0)
+        UI.HealthBar.bar.Size = dim2(1, 0, cache.humanoid.Health / cache.humanoid.MaxHealth, 0)
+     end
+   end
 
+    
 
    else
        
